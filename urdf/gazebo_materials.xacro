@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<robot name="service_robot_cart_gazebo_materials" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- Gazebo 材质定义（匹配 URDF 颜色） -->
+  <gazebo reference="base_link">
+    <material>Gazebo/Silver</material>
+  </gazebo>
+
+  <gazebo reference="upper_deck">
+    <material>Gazebo/White</material>
+  </gazebo>
+
+  <gazebo reference="front_left_bumper">
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+
+  <gazebo reference="front_right_bumper">
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+
+  <gazebo reference="rear_left_bumper">
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+
+  <gazebo reference="rear_right_bumper">
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+
+  <gazebo reference="front_black_bumper">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <gazebo reference="rear_black_bumper">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <gazebo reference="left_screen">
+    <material>Gazebo/Blue</material>
+  </gazebo>
+
+  <gazebo reference="right_screen">
+    <material>Gazebo/Blue</material>
+  </gazebo>
+
+  <gazebo reference="front_left_light">
+    <material>Gazebo/Red</material>
+  </gazebo>
+
+  <gazebo reference="front_right_light">
+    <material>Gazebo/Red</material>
+  </gazebo>
+
+  <gazebo reference="rear_left_light">
+    <material>Gazebo/Red</material>
+  </gazebo>
+
+  <gazebo reference="rear_right_light">
+    <material>Gazebo/Red</material>
+  </gazebo>
+
+  <gazebo reference="front_left_wheel_link">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <gazebo reference="front_right_wheel_link">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <gazebo reference="rear_left_wheel_link">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <gazebo reference="rear_right_wheel_link">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <gazebo reference="front_left_caster">
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+
+  <gazebo reference="front_right_caster">
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+
+  <gazebo reference="rear_left_caster">
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+
+  <gazebo reference="rear_right_caster">
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+
+  <!-- 玻璃材质需要特殊处理 -->
+  <gazebo reference="left_glass">
+    <material>Gazebo/GreyGlass</material>
+  </gazebo>
+
+  <gazebo reference="right_glass">
+    <material>Gazebo/GreyGlass</material>
+  </gazebo>
+
+</robot>

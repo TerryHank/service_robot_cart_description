@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<robot name="service_robot_cart" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find service_robot_cart_description)/urdf/service_robot_cart_geometric.urdf.xacro"/>
+
+  <!-- ===== ros2_control hardware interface ===== -->
+  <ros2_control name="gz_ros2_control" type="system">
+    <hardware>
+      <plugin>gz_ros2_control/GazeboSimSystem</plugin>
+    </hardware>
+    <joint name="front_left_wheel_joint">
+      <command_interface name="velocity">
+        <param name="min">-10</param>
+        <param name="max">10</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+    </joint>
+    <joint name="rear_left_wheel_joint">
+      <command_interface name="velocity">
+        <param name="min">-10</param>
+        <param name="max">10</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+    </joint>
+    <joint name="front_right_wheel_joint">
+      <command_interface name="velocity">
+        <param name="min">-10</param>
+        <param name="max">10</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+    </joint>
+    <joint name="rear_right_wheel_joint">
+      <command_interface name="velocity">
+        <param name="min">-10</param>
+        <param name="max">10</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+    </joint>
+  </ros2_control>
+
+  <!-- ===== gz_ros2_control plugin (MODEL level) ===== -->
+  <gazebo>
+    <plugin filename="gz_ros2_control-system"
+            name="gz_ros2_control::GazeboSimROS2ControlPlugin">
+      <robot_param>robot_description</robot_param>
+      <robot_param_node>robot_state_publisher</robot_param_node>
+      <parameters>$(find service_robot_cart_description)/config/controllers.yaml</parameters>
+    </plugin>
+  </gazebo>
+
+  <!-- Gazebo material definitions (synced with RViz) -->
+  <gazebo reference="base_link">
+    <material>Gazebo/Silver</material>
+  </gazebo>
+  <gazebo reference="body_link">
+    <material>Gazebo/White</material>
+  </gazebo>
+  <gazebo reference="top_display_link">
+    <material>Gazebo/Blue</material>
+  </gazebo>
+  <gazebo reference="front_left_wheel_link">
+    <material>Gazebo/Black</material>
+  </gazebo>
+  <gazebo reference="front_right_wheel_link">
+    <material>Gazebo/Black</material>
+  </gazebo>
+  <gazebo reference="rear_left_wheel_link">
+    <material>Gazebo/Black</material>
+  </gazebo>
+  <gazebo reference="rear_right_wheel_link">
+    <material>Gazebo/Black</material>
+  </gazebo>
+  <gazebo reference="tray_1_link">
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+  <gazebo reference="tray_2_link">
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+  <gazebo reference="tray_3_link">
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+  <gazebo reference="tray_4_link">
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+  <gazebo reference="front_sensor_link">
+    <material>Gazebo/Red</material>
+  </gazebo>
+  <gazebo reference="rear_sensor_link">
+    <material>Gazebo/Red</material>
+  </gazebo>
+  <gazebo reference="left_side_camera_link">
+    <material>Gazebo/GreyGlass</material>
+  </gazebo>
+  <gazebo reference="right_side_camera_link">
+    <material>Gazebo/GreyGlass</material>
+  </gazebo>
+  <gazebo reference="rear_camera_link">
+    <material>Gazebo/GreyGlass</material>
+  </gazebo>
+
+  <xacro:include filename="$(find service_robot_cart_description)/urdf/sensor_plugins.xacro"/>
+</robot>

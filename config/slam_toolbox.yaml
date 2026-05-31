@@ -1,0 +1,38 @@
+slam_toolbox:
+  ros__parameters:
+    use_sim_time: true
+    solver_plugin: solver_plugins::CeresSolver
+    ceres_linear_solver: SPARSE_NORMAL_CHOLESKY
+    ceres_preconditioner: SCHUR_JACOBI
+    ceres_trust_strategy: LEVENBERG_MARQUARDT
+    ceres_dogleg_type: TRADITIONAL_DOGLEG
+    ceres_loss_function: None
+    max_iterations: 5
+    use_online_processing: true
+    minimum_travel_distance: 0.3
+    minimum_travel_heading: 0.3
+    map_buffer_duration: 60.0
+    scan_buffer_size: 10
+    scan_buffer_maximum_scan_distance: 10.0
+    link_match_minimum_response_fine: 0.1
+    link_match_maximum_delta: 0.2
+    loop_search_maximum_distance: 3.0
+    do_loop_closing: true
+    loop_match_minimum_chain_size: 10
+    loop_match_maximum_variance_coarse: 3.0
+    loop_match_minimum_response_fine: 0.35
+    loop_match_minimum_response_coarse: 0.35
+    resolution: 0.05
+    max_laser_range: 10.0
+    minimum_scan_amplitude: 0.0
+    transform_timeout: 0.2
+    tf_buffer_duration: 30.0
+    stack_size_to_use: 40000000
+    enable_interactive_mode: true
+    use_scan_matching: true
+    use_scan_barycenter: true
+    scan_topic: /scan
+    odom_topic: /odom
+    mode: mapping
+    map_file_name: ""
+    map_start_pose: [0.0, 0.0, 0.0]

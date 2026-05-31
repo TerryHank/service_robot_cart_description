@@ -1,0 +1,31 @@
+rtabmap:
+  ros__parameters:
+    use_sim_time: true
+    frame_id: base_link
+    odom_frame_id: odom
+    map_frame_id: map
+    subscribe_scan: true
+    subscribe_odom: true
+    subscribe_imu: true
+    queue_size: 20
+    stereo_to_depth: false
+    Mem/IncrementalMemory: "true"
+    Mem/InitWMWithAllNodes: "false"
+    RGBD/ProximityBySpace: "true"
+    RGBD/AngularUpdate: 0.01
+    RGBD/LinearUpdate: 0.01
+    RGBD/OptimizeFromGraphEnd: "false"
+    Grid/FromDepth: "false"
+    Grid/RangeMax: 10.0
+    Grid/RangeMin: 0.1
+    Grid/CellSize: 0.05
+    Grid/MaxObstacleHeight: 2.0
+    Grid/MaxGroundHeight: 0.0
+    Grid/NormalsSegmentation: "false"
+    Grid/FlatObstacleDetected: "true"
+    Reg/Strategy: "1"
+    Reg/Force3DoF: "true"
+    Odom/Strategy: "0"
+    Odom/Holonomic: "false"
+    Odom/ResetCountdown: "1"
+    OdomFilt/Strategy: "0"

@@ -1,0 +1,40 @@
+  <!-- ros2_control hardware interface for the 4-wheel differential drive cart -->
+  <!-- Included as a fragment inside the main robot xacro -->
+
+  <ros2_control name="mock_components" type="system">
+    <hardware>
+      <plugin>mock_components/System</plugin>
+      <param name="front_left_wheel_joint">position</param>
+      <param name="front_right_wheel_joint">position</param>
+      <param name="rear_left_wheel_joint">position</param>
+      <param name="rear_right_wheel_joint">position</param>
+    </hardware>
+
+    <joint name="front_left_wheel_joint">
+      <command_interface name="position"/>
+      <command_interface name="velocity"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+    </joint>
+
+    <joint name="front_right_wheel_joint">
+      <command_interface name="position"/>
+      <command_interface name="velocity"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+    </joint>
+
+    <joint name="rear_left_wheel_joint">
+      <command_interface name="position"/>
+      <command_interface name="velocity"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+    </joint>
+
+    <joint name="rear_right_wheel_joint">
+      <command_interface name="position"/>
+      <command_interface name="velocity"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+    </joint>
+  </ros2_control>

@@ -1,0 +1,927 @@
+<?xml version="1.0"?>
+
+<robot name="service_robot_cart_geometric" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- Simplified geometric URDF. Units: meters. -->
+
+  <!-- Coordinate convention: +X forward/toward shelf side, +Y left, +Z up. -->
+
+  <material name="silver">
+    <color rgba="0.804 0.863 0.843 1"/>
+  </material>
+  <material name="dark_silver">
+    <color rgba="0.275 0.322 0.314 1"/>
+  </material>
+  <material name="black">
+    <color rgba="0.031 0.039 0.039 1"/>
+  </material>
+  <material name="rubber">
+    <color rgba="0.071 0.071 0.071 1"/>
+  </material>
+  <material name="blue">
+    <color rgba="0 0.518 0.824 1"/>
+  </material>
+  <material name="screen">
+    <color rgba="0.063 0.725 0.922 0.902"/>
+  </material>
+  <material name="glass">
+    <color rgba="0.02 0.176 0.255 0.863"/>
+  </material>
+  <material name="red">
+    <color rgba="0.941 0.118 0.086 1"/>
+  </material>
+  <material name="white">
+    <color rgba="0.922 0.961 0.949 1"/>
+  </material>
+
+
+  <link name="base_link">
+    <inertial>
+      <origin xyz="-0.02 0.0 0.1" rpy="0 0 0"/>
+      <mass value="3.0"/>
+      <inertia ixx="0.03625" ixy="0.0" ixz="0.0" iyy="0.095625" iyz="0.0" izz="0.120625"/>
+    </inertial>
+    <visual name="lower_chassis">
+      <origin xyz="-0.025 0.0 0.09" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.6 0.35 0.1"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <visual name="upper_deck">
+      <origin xyz="0.0 0.0 0.16" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.525 0.32 0.04"/>
+      </geometry>
+      <material name="white"/>
+    </visual>
+    <visual name="front_black_bumper">
+      <origin xyz="0.275 0.0 0.08" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.05 0.37 0.06"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+    <visual name="rear_black_bumper">
+      <origin xyz="-0.325 0.0 0.08" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.05 0.37 0.06"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+    <visual name="left_side_skirt">
+      <origin xyz="-0.015 0.186 0.065" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.48 0.0175 0.055"/>
+      </geometry>
+      <material name="dark_silver"/>
+    </visual>
+    <visual name="right_side_skirt">
+      <origin xyz="-0.015 -0.186 0.065" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.48 0.0175 0.055"/>
+      </geometry>
+      <material name="dark_silver"/>
+    </visual>
+    <visual name="front_red_indicator_left">
+      <origin xyz="0.3025 0.11 0.11" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.0125 0.03 0.0125"/>
+      </geometry>
+      <material name="red"/>
+    </visual>
+    <visual name="front_red_indicator_right">
+      <origin xyz="0.3025 -0.11 0.11" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.0125 0.03 0.0125"/>
+      </geometry>
+      <material name="red"/>
+    </visual>
+    <visual name="rear_red_indicator_left">
+      <origin xyz="-0.3525 0.11 0.11" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.0125 0.03 0.0125"/>
+      </geometry>
+      <material name="red"/>
+    </visual>
+    <visual name="rear_red_indicator_right">
+      <origin xyz="-0.3525 -0.11 0.11" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.0125 0.03 0.0125"/>
+      </geometry>
+      <material name="red"/>
+    </visual>
+    <collision name="lower_chassis_collision">
+      <origin xyz="-0.025 0.0 0.09" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.6 0.35 0.1"/>
+      </geometry>
+    </collision>
+    <collision name="upper_deck_collision">
+      <origin xyz="0.0 0.0 0.16" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.525 0.32 0.04"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="body_link">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+      <mass value="2.5"/>
+      <inertia ixx="0.11041666" ixy="0.0" ixz="0.0" iyy="0.10166666" iyz="0.0" izz="0.01941666"/>
+    </inertial>
+    <visual name="straight_main_body">
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.16 0.26 0.68"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <visual name="front_dark_service_panel">
+      <origin xyz="0.0875 0.0 -0.01" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.0125 0.21 0.54"/>
+      </geometry>
+      <material name="dark_silver"/>
+    </visual>
+    <visual name="rear_camera_recess_panel">
+      <origin xyz="-0.0875 0.0 0.05" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.0125 0.15 0.23"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+    <visual name="left_vertical_trim">
+      <origin xyz="0.0 0.139 0.0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.17 0.0125 0.63"/>
+      </geometry>
+      <material name="white"/>
+    </visual>
+    <visual name="right_vertical_trim">
+      <origin xyz="0.0 -0.139 0.0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.17 0.0125 0.63"/>
+      </geometry>
+      <material name="white"/>
+    </visual>
+    <visual name="top_blue_cap">
+      <origin xyz="0.0 0.0 0.3535" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.17 0.27 0.0275"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+    <collision name="body_collision">
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.16 0.26 0.68"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="tray_1_link">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+      <mass value="0.25"/>
+      <inertia ixx="0.00190834" ixy="0.0" ixz="0.0" iyy="0.00353541" iyz="0.0" izz="0.00537709"/>
+    </inertial>
+    <visual name="tray_1_deck">
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.41 0.3 0.02"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <visual name="tray_1_dark_inset">
+      <origin xyz="0.01 0.0 0.0155" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.36 0.25 0.006"/>
+      </geometry>
+      <material name="dark_silver"/>
+    </visual>
+    <visual name="tray_1_left_rail">
+      <origin xyz="0.0 0.1575 0.0265" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.41 0.0175 0.0325"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <visual name="tray_1_right_rail">
+      <origin xyz="0.0 -0.1575 0.0265" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.41 0.0175 0.0325"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <visual name="tray_1_front_rail">
+      <origin xyz="0.206 0.0 0.0265" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.0175 0.3 0.0325"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <visual name="tray_1_rear_bracket">
+      <origin xyz="-0.206 0.0 0.02" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.0175 0.3 0.06"/>
+      </geometry>
+      <material name="dark_silver"/>
+    </visual>
+    <collision name="tray_1_collision">
+      <origin xyz="0.0 0.0 0.0175" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.42 0.32 0.0425"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="tray_1_surface_frame">
+  </link>
+
+  <link name="tray_2_link">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+      <mass value="0.25"/>
+      <inertia ixx="0.00190834" ixy="0.0" ixz="0.0" iyy="0.00353541" iyz="0.0" izz="0.00537709"/>
+    </inertial>
+    <visual name="tray_2_deck">
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.41 0.3 0.02"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <visual name="tray_2_dark_inset">
+      <origin xyz="0.01 0.0 0.0155" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.36 0.25 0.006"/>
+      </geometry>
+      <material name="dark_silver"/>
+    </visual>
+    <visual name="tray_2_left_rail">
+      <origin xyz="0.0 0.1575 0.0265" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.41 0.0175 0.0325"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <visual name="tray_2_right_rail">
+      <origin xyz="0.0 -0.1575 0.0265" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.41 0.0175 0.0325"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <visual name="tray_2_front_rail">
+      <origin xyz="0.206 0.0 0.0265" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.0175 0.3 0.0325"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <visual name="tray_2_rear_bracket">
+      <origin xyz="-0.206 0.0 0.02" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.0175 0.3 0.06"/>
+      </geometry>
+      <material name="dark_silver"/>
+    </visual>
+    <collision name="tray_2_collision">
+      <origin xyz="0.0 0.0 0.0175" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.42 0.32 0.0425"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="tray_2_surface_frame">
+  </link>
+
+  <link name="tray_3_link">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+      <mass value="0.25"/>
+      <inertia ixx="0.00190834" ixy="0.0" ixz="0.0" iyy="0.00353541" iyz="0.0" izz="0.00537709"/>
+    </inertial>
+    <visual name="tray_3_deck">
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.41 0.3 0.02"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <visual name="tray_3_dark_inset">
+      <origin xyz="0.01 0.0 0.0155" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.36 0.25 0.006"/>
+      </geometry>
+      <material name="dark_silver"/>
+    </visual>
+    <visual name="tray_3_left_rail">
+      <origin xyz="0.0 0.1575 0.0265" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.41 0.0175 0.0325"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <visual name="tray_3_right_rail">
+      <origin xyz="0.0 -0.1575 0.0265" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.41 0.0175 0.0325"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <visual name="tray_3_front_rail">
+      <origin xyz="0.206 0.0 0.0265" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.0175 0.3 0.0325"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <visual name="tray_3_rear_bracket">
+      <origin xyz="-0.206 0.0 0.02" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.0175 0.3 0.06"/>
+      </geometry>
+      <material name="dark_silver"/>
+    </visual>
+    <collision name="tray_3_collision">
+      <origin xyz="0.0 0.0 0.0175" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.42 0.32 0.0425"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="tray_3_surface_frame">
+  </link>
+
+  <link name="tray_4_link">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+      <mass value="0.25"/>
+      <inertia ixx="0.00190834" ixy="0.0" ixz="0.0" iyy="0.00353541" iyz="0.0" izz="0.00537709"/>
+    </inertial>
+    <visual name="tray_4_deck">
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.41 0.3 0.02"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <visual name="tray_4_dark_inset">
+      <origin xyz="0.01 0.0 0.0155" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.36 0.25 0.006"/>
+      </geometry>
+      <material name="dark_silver"/>
+    </visual>
+    <visual name="tray_4_left_rail">
+      <origin xyz="0.0 0.1575 0.0265" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.41 0.0175 0.0325"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <visual name="tray_4_right_rail">
+      <origin xyz="0.0 -0.1575 0.0265" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.41 0.0175 0.0325"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <visual name="tray_4_front_rail">
+      <origin xyz="0.206 0.0 0.0265" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.0175 0.3 0.0325"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <visual name="tray_4_rear_bracket">
+      <origin xyz="-0.206 0.0 0.02" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.0175 0.3 0.06"/>
+      </geometry>
+      <material name="dark_silver"/>
+    </visual>
+    <collision name="tray_4_collision">
+      <origin xyz="0.0 0.0 0.0175" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.42 0.32 0.0425"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="tray_4_surface_frame">
+  </link>
+
+  <link name="front_left_wheel_link">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+      <mass value="0.25"/>
+      <inertia ixx="0.00044219" ixy="0.0" ixz="0.0" iyy="0.0008" iyz="0.0" izz="0.00044219"/>
+    </inertial>
+    <visual name="front_left_wheel_link_rubber_tire">
+      <origin xyz="0.0 0.0 0.0" rpy="-1.570796 0 0"/>
+      <geometry>
+        <cylinder radius="0.08" length="0.045"/>
+      </geometry>
+      <material name="rubber"/>
+    </visual>
+    <visual name="front_left_wheel_link_silver_hub">
+      <origin xyz="0.0 0.0 0.0" rpy="-1.570796 0 0"/>
+      <geometry>
+        <cylinder radius="0.0575" length="0.049"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <visual name="front_left_wheel_link_dark_center_cap">
+      <origin xyz="0.0 0.0 0.0" rpy="-1.570796 0 0"/>
+      <geometry>
+        <cylinder radius="0.026" length="0.051"/>
+      </geometry>
+      <material name="dark_silver"/>
+    </visual>
+    <collision name="wheel_collision">
+      <origin xyz="0.0 0.0 0.0" rpy="-1.570796 0 0"/>
+      <geometry>
+        <cylinder radius="0.08" length="0.045"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="front_right_wheel_link">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+      <mass value="0.25"/>
+      <inertia ixx="0.00044219" ixy="0.0" ixz="0.0" iyy="0.0008" iyz="0.0" izz="0.00044219"/>
+    </inertial>
+    <visual name="front_right_wheel_link_rubber_tire">
+      <origin xyz="0.0 0.0 0.0" rpy="-1.570796 0 0"/>
+      <geometry>
+        <cylinder radius="0.08" length="0.045"/>
+      </geometry>
+      <material name="rubber"/>
+    </visual>
+    <visual name="front_right_wheel_link_silver_hub">
+      <origin xyz="0.0 0.0 0.0" rpy="-1.570796 0 0"/>
+      <geometry>
+        <cylinder radius="0.0575" length="0.049"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <visual name="front_right_wheel_link_dark_center_cap">
+      <origin xyz="0.0 0.0 0.0" rpy="-1.570796 0 0"/>
+      <geometry>
+        <cylinder radius="0.026" length="0.051"/>
+      </geometry>
+      <material name="dark_silver"/>
+    </visual>
+    <collision name="wheel_collision">
+      <origin xyz="0.0 0.0 0.0" rpy="-1.570796 0 0"/>
+      <geometry>
+        <cylinder radius="0.08" length="0.045"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="rear_left_wheel_link">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+      <mass value="0.25"/>
+      <inertia ixx="0.00044219" ixy="0.0" ixz="0.0" iyy="0.0008" iyz="0.0" izz="0.00044219"/>
+    </inertial>
+    <visual name="rear_left_wheel_link_rubber_tire">
+      <origin xyz="0.0 0.0 0.0" rpy="-1.570796 0 0"/>
+      <geometry>
+        <cylinder radius="0.08" length="0.045"/>
+      </geometry>
+      <material name="rubber"/>
+    </visual>
+    <visual name="rear_left_wheel_link_silver_hub">
+      <origin xyz="0.0 0.0 0.0" rpy="-1.570796 0 0"/>
+      <geometry>
+        <cylinder radius="0.0575" length="0.049"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <visual name="rear_left_wheel_link_dark_center_cap">
+      <origin xyz="0.0 0.0 0.0" rpy="-1.570796 0 0"/>
+      <geometry>
+        <cylinder radius="0.026" length="0.051"/>
+      </geometry>
+      <material name="dark_silver"/>
+    </visual>
+    <collision name="wheel_collision">
+      <origin xyz="0.0 0.0 0.0" rpy="-1.570796 0 0"/>
+      <geometry>
+        <cylinder radius="0.08" length="0.045"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="rear_right_wheel_link">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+      <mass value="0.25"/>
+      <inertia ixx="0.00044219" ixy="0.0" ixz="0.0" iyy="0.0008" iyz="0.0" izz="0.00044219"/>
+    </inertial>
+    <visual name="rear_right_wheel_link_rubber_tire">
+      <origin xyz="0.0 0.0 0.0" rpy="-1.570796 0 0"/>
+      <geometry>
+        <cylinder radius="0.08" length="0.045"/>
+      </geometry>
+      <material name="rubber"/>
+    </visual>
+    <visual name="rear_right_wheel_link_silver_hub">
+      <origin xyz="0.0 0.0 0.0" rpy="-1.570796 0 0"/>
+      <geometry>
+        <cylinder radius="0.0575" length="0.049"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <visual name="rear_right_wheel_link_dark_center_cap">
+      <origin xyz="0.0 0.0 0.0" rpy="-1.570796 0 0"/>
+      <geometry>
+        <cylinder radius="0.026" length="0.051"/>
+      </geometry>
+      <material name="dark_silver"/>
+    </visual>
+    <collision name="wheel_collision">
+      <origin xyz="0.0 0.0 0.0" rpy="-1.570796 0 0"/>
+      <geometry>
+        <cylinder radius="0.08" length="0.045"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="rear_camera_link">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+      <mass value="0.0437"/>
+      <inertia ixx="0.00017975" ixy="0.0" ixz="0.0" iyy="0.00012259" iyz="0.0" izz="6.609e-05"/>
+    </inertial>
+    <visual name="rear_camera_black_panel">
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.0175 0.12 0.16"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+    <visual name="rear_camera_silver_ring">
+      <origin xyz="0.0125 0.0 0.0225" rpy="0 1.570796 0"/>
+      <geometry>
+        <cylinder radius="0.035" length="0.02"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <visual name="rear_camera_glass_lens">
+      <origin xyz="0.025 0.0 0.0225" rpy="0 1.570796 0"/>
+      <geometry>
+        <cylinder radius="0.0225" length="0.022"/>
+      </geometry>
+      <material name="glass"/>
+    </visual>
+    <visual name="rear_small_scanner_slot">
+      <origin xyz="0.01 0.0 -0.0825" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.016 0.08 0.0175"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+    <visual name="rear_small_red_line">
+      <origin xyz="0.0205 0.0 -0.0825" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.017 0.055 0.005"/>
+      </geometry>
+      <material name="red"/>
+    </visual>
+    <collision name="rear_camera_collision">
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.035 0.13 0.18"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="rear_camera_optical_frame">
+  </link>
+
+  <link name="left_side_camera_link">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+      <mass value="0.0312"/>
+      <inertia ixx="1.65e-05" ixy="0.0" ixz="0.0" iyy="1.022e-05" iyz="0.0" izz="1.022e-05"/>
+    </inertial>
+    <visual name="left_side_camera_housing">
+      <origin xyz="0.0 0.0 0.0" rpy="0 1.570796 0"/>
+      <geometry>
+        <cylinder radius="0.0325" length="0.0275"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <visual name="left_side_camera_lens">
+      <origin xyz="0.013 0.0 0.0" rpy="0 1.570796 0"/>
+      <geometry>
+        <cylinder radius="0.02" length="0.03"/>
+      </geometry>
+      <material name="glass"/>
+    </visual>
+    <visual name="left_side_camera_black_ring">
+      <origin xyz="0.01 0.0 0.0" rpy="0 1.570796 0"/>
+      <geometry>
+        <cylinder radius="0.0235" length="0.032"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+    <collision name="left_side_camera_link_collision">
+      <origin xyz="0.0 0.0 0.0" rpy="0 1.570796 0"/>
+      <geometry>
+        <cylinder radius="0.035" length="0.035"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="left_side_camera_optical_frame">
+  </link>
+
+  <link name="right_side_camera_link">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+      <mass value="0.0312"/>
+      <inertia ixx="1.65e-05" ixy="0.0" ixz="0.0" iyy="1.022e-05" iyz="0.0" izz="1.022e-05"/>
+    </inertial>
+    <visual name="right_side_camera_housing">
+      <origin xyz="0.0 0.0 0.0" rpy="0 1.570796 0"/>
+      <geometry>
+        <cylinder radius="0.0325" length="0.0275"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <visual name="right_side_camera_lens">
+      <origin xyz="0.013 0.0 0.0" rpy="0 1.570796 0"/>
+      <geometry>
+        <cylinder radius="0.02" length="0.03"/>
+      </geometry>
+      <material name="glass"/>
+    </visual>
+    <visual name="right_side_camera_black_ring">
+      <origin xyz="0.01 0.0 0.0" rpy="0 1.570796 0"/>
+      <geometry>
+        <cylinder radius="0.0235" length="0.032"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+    <collision name="right_side_camera_link_collision">
+      <origin xyz="0.0 0.0 0.0" rpy="0 1.570796 0"/>
+      <geometry>
+        <cylinder radius="0.035" length="0.035"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="right_side_camera_optical_frame">
+  </link>
+
+  <link name="top_display_link">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+      <mass value="0.0563"/>
+      <inertia ixx="0.0002775" ixy="0.0" ixz="0.0" iyy="0.000195" iyz="0.0" izz="0.0004575"/>
+    </inertial>
+    <visual name="top_display_black_housing">
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.19 0.23 0.0275"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+    <visual name="top_display_blue_bezel">
+      <origin xyz="0.0 0.0 0.019" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.17 0.21 0.009"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+    <visual name="top_display_screen">
+      <origin xyz="0.0 0.0 0.029" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.12 0.155 0.0105"/>
+      </geometry>
+      <material name="screen"/>
+    </visual>
+    <visual name="top_display_slot">
+      <origin xyz="0.08 0.0 0.032" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.015 0.11 0.006"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+    <collision name="top_display_collision">
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.2 0.24 0.04"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="front_sensor_link">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+      <mass value="0.0125"/>
+      <inertia ixx="2.5e-06" ixy="0.0" ixz="0.0" iyy="1.41e-06" iyz="0.0" izz="1.41e-06"/>
+    </inertial>
+    <visual name="front_sensor_link_silver_ring">
+      <origin xyz="0.0 0.0 0.0" rpy="0 1.570796 0"/>
+      <geometry>
+        <cylinder radius="0.02" length="0.0125"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <visual name="front_sensor_link_glass">
+      <origin xyz="0.006 0.0 0.0" rpy="0 1.570796 0"/>
+      <geometry>
+        <cylinder radius="0.013" length="0.015"/>
+      </geometry>
+      <material name="glass"/>
+    </visual>
+    <collision name="front_sensor_link_collision">
+      <origin xyz="0.0 0.0 0.0" rpy="0 1.570796 0"/>
+      <geometry>
+        <cylinder radius="0.0225" length="0.0175"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="rear_sensor_link">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+      <mass value="0.0125"/>
+      <inertia ixx="2.5e-06" ixy="0.0" ixz="0.0" iyy="1.41e-06" iyz="0.0" izz="1.41e-06"/>
+    </inertial>
+    <visual name="rear_sensor_link_silver_ring">
+      <origin xyz="0.0 0.0 0.0" rpy="0 1.570796 0"/>
+      <geometry>
+        <cylinder radius="0.02" length="0.0125"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <visual name="rear_sensor_link_glass">
+      <origin xyz="0.006 0.0 0.0" rpy="0 1.570796 0"/>
+      <geometry>
+        <cylinder radius="0.013" length="0.015"/>
+      </geometry>
+      <material name="glass"/>
+    </visual>
+    <collision name="rear_sensor_link_collision">
+      <origin xyz="0.0 0.0 0.0" rpy="0 1.570796 0"/>
+      <geometry>
+        <cylinder radius="0.0225" length="0.0175"/>
+      </geometry>
+    </collision>
+  </link>
+
+
+  <joint name="base_to_body_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="body_link"/>
+    <origin xyz="-0.175 0.0 0.49" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="tray_1_joint" type="fixed">
+    <parent link="body_link"/>
+    <child link="tray_1_link"/>
+    <origin xyz="0.295 0.0 -0.275" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="tray_1_surface_frame_joint" type="fixed">
+    <parent link="tray_1_link"/>
+    <child link="tray_1_surface_frame"/>
+    <origin xyz="0.0 0.0 0.04" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="tray_2_joint" type="fixed">
+    <parent link="body_link"/>
+    <child link="tray_2_link"/>
+    <origin xyz="0.295 0.0 -0.125" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="tray_2_surface_frame_joint" type="fixed">
+    <parent link="tray_2_link"/>
+    <child link="tray_2_surface_frame"/>
+    <origin xyz="0.0 0.0 0.04" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="tray_3_joint" type="fixed">
+    <parent link="body_link"/>
+    <child link="tray_3_link"/>
+    <origin xyz="0.295 0.0 0.025" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="tray_3_surface_frame_joint" type="fixed">
+    <parent link="tray_3_link"/>
+    <child link="tray_3_surface_frame"/>
+    <origin xyz="0.0 0.0 0.04" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="tray_4_joint" type="fixed">
+    <parent link="body_link"/>
+    <child link="tray_4_link"/>
+    <origin xyz="0.295 0.0 0.175" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="tray_4_surface_frame_joint" type="fixed">
+    <parent link="tray_4_link"/>
+    <child link="tray_4_surface_frame"/>
+    <origin xyz="0.0 0.0 0.04" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="front_left_wheel_joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="front_left_wheel_link"/>
+    <origin xyz="0.215 0.205 0.08" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <dynamics damping="0.02" friction="0.01"/>
+  </joint>
+
+  <joint name="front_right_wheel_joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="front_right_wheel_link"/>
+    <origin xyz="0.215 -0.205 0.08" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <dynamics damping="0.02" friction="0.01"/>
+  </joint>
+
+  <joint name="rear_left_wheel_joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="rear_left_wheel_link"/>
+    <origin xyz="-0.245 0.205 0.08" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <dynamics damping="0.02" friction="0.01"/>
+  </joint>
+
+  <joint name="rear_right_wheel_joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="rear_right_wheel_link"/>
+    <origin xyz="-0.245 -0.205 0.08" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <dynamics damping="0.02" friction="0.01"/>
+  </joint>
+
+  <joint name="body_to_rear_camera_joint" type="fixed">
+    <parent link="body_link"/>
+    <child link="rear_camera_link"/>
+    <origin xyz="-0.0925 0.0 0.06" rpy="0 0 3.141593"/>
+  </joint>
+
+  <joint name="rear_camera_optical_joint" type="fixed">
+    <parent link="rear_camera_link"/>
+    <child link="rear_camera_optical_frame"/>
+    <origin xyz="0.0 0.0 0.0" rpy="-1.570796 0 -1.570796"/>
+  </joint>
+
+  <joint name="body_to_left_side_camera_link_joint" type="fixed">
+    <parent link="body_link"/>
+    <child link="left_side_camera_link"/>
+    <origin xyz="0.0 0.1425 0.18" rpy="0 0 1.570796"/>
+  </joint>
+
+  <joint name="left_side_camera_optical_frame_joint" type="fixed">
+    <parent link="left_side_camera_link"/>
+    <child link="left_side_camera_optical_frame"/>
+    <origin xyz="0.0 0.0 0.0" rpy="-1.570796 0 -1.570796"/>
+  </joint>
+
+  <joint name="body_to_right_side_camera_link_joint" type="fixed">
+    <parent link="body_link"/>
+    <child link="right_side_camera_link"/>
+    <origin xyz="0.0 -0.1425 0.18" rpy="0 0 -1.570796"/>
+  </joint>
+
+  <joint name="right_side_camera_optical_frame_joint" type="fixed">
+    <parent link="right_side_camera_link"/>
+    <child link="right_side_camera_optical_frame"/>
+    <origin xyz="0.0 0.0 0.0" rpy="-1.570796 0 -1.570796"/>
+  </joint>
+
+  <joint name="body_to_top_display_joint" type="fixed">
+    <parent link="body_link"/>
+    <child link="top_display_link"/>
+    <origin xyz="-0.01 0.0 0.3675" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="front_sensor_link_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="front_sensor_link"/>
+    <origin xyz="0.3025 0.0 0.11" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="rear_sensor_link_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="rear_sensor_link"/>
+    <origin xyz="-0.3525 0.0 0.11" rpy="0 0 3.141593"/>
+  </joint>
+
+</robot>
