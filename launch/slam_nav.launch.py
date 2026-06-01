@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 import os
-"""SLAM Toolbox + Nav2 + Fake LaserScan (headless Gazebo)"""
+"""SLAM Toolbox + Nav2 + Fake LaserScan + Odom Bridge (Gazebo Pose_V -> odom)"""
 import subprocess
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
@@ -45,7 +45,12 @@ def generate_launch_description():
     fake_scan = Node(package="service_robot_cart_description", executable="fake_laser_scan.py",
         output="screen", parameters=[{"use_sim_time": True}])
 
-    # SLAM with inline params and odom remapping
+    # Odom bridge: subscribes Gazebo Pose_V directly (gz.transport), publishes /odom + TF
+    odom_bridge = TimerAction(period=12.0, actions=[
+        Node(package="service_robot_cart_description", executable="odom_bridge.py",
+            output="screen", parameters=[{"use_sim_time": True}])])
+
+    # SLAM with inline params (uses default /odom topic from odom_bridge)
     slam = TimerAction(period=18.0, actions=[
         Node(package="slam_toolbox", executable="async_slam_toolbox_node",
             name="slam_toolbox", output="screen",
@@ -72,8 +77,7 @@ def generate_launch_description():
                 "map_frame": "map",
                 "mode": "mapping",
                 "scan_queue_size": 10,
-            }],
-            remappings=[("/odom", "/diff_drive_controller/odom")])])
+            }])])
 
     slam_lifecycle = Node(package="nav2_lifecycle_manager", executable="lifecycle_manager",
         name="lifecycle_manager_slam", output="screen",
@@ -89,6 +93,6 @@ def generate_launch_description():
         SetEnvironmentVariable("GZ_SIM_SYSTEM_PLUGIN_PATH", "/opt/ros/jazzy/lib"),
         SetEnvironmentVariable("GZ_IP", wsl_ip),
         SetEnvironmentVariable("GZ_SIM_RESOURCE_PATH", pkg_path + "/models:" + (os.environ.get("GZ_SIM_RESOURCE_PATH", "") or "")),
-        gz_sim, rsp, spawn, bridge, jsb, diff, twist_bridge, fake_scan,
+        gz_sim, rsp, spawn, bridge, jsb, diff, twist_bridge, fake_scan, odom_bridge,
         slam, slam_lifecycle, nav2,
     ])

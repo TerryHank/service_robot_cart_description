@@ -832,5 +832,1428 @@
       <cast_shadows>0</cast_shadows>
       <direction>0 0 -1</direction>
     </light>
+
+    <model name='service_robot_cart'>
+      <pose>-2.0 0.0 0.05 0 0 0</pose>
+    <link name='base_link'>
+      <inertial>
+        <pose>-0.061481330561952333 0 0.3113123560726142 0 0 0</pose>
+        <mass>6.6874000000000002</mass>
+        <inertia>
+          <ixx>0.44284373931001708</ixx>
+          <ixy>2.0178394523782369e-11</ixy>
+          <ixz>0.062324650722655639</ixz>
+          <iyy>0.57512697175413796</iyy>
+          <iyz>0</iyz>
+          <izz>0.23991032244412069</izz>
+        </inertia>
+      </inertial>
+      <collision name='base_link_fixed_joint_lump__lower_chassis_collision_collision'>
+        <pose>-0.025000000000000001 0 0.089999999999999997 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.59999999999999998 0.34999999999999998 0.10000000000000001</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='base_link_fixed_joint_lump__upper_deck_collision_collision_1'>
+        <pose>0 0 0.16 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.52500000000000002 0.32000000000000001 0.040000000000000001</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='base_link_fixed_joint_lump__body_collision_collision_2'>
+        <pose>-0.17499999999999999 0 0.48999999999999999 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.16 0.26000000000000001 0.68000000000000005</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='base_link_fixed_joint_lump__left_side_camera_link_collision_collision_3'>
+        <pose>-0.17499999999999999 0.14249999999999999 0.66999999999999993 -1.5707960000000001 1.5707963118937354 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.035000000000000003</length>
+            <radius>0.035000000000000003</radius>
+          </cylinder>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <collision name='base_link_fixed_joint_lump__rear_camera_collision_collision_4'>
+        <pose>-0.26750000000000002 0 0.55000000000000004 0 0 -3.1415923071795868</pose>
+        <geometry>
+          <box>
+            <size>0.035000000000000003 0.13 0.17999999999999999</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='base_link_fixed_joint_lump__right_side_camera_link_collision_collision_5'>
+        <pose>-0.17499999999999999 -0.14249999999999999 0.66999999999999993 1.5707960000000001 1.5707963118937354 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.035000000000000003</length>
+            <radius>0.035000000000000003</radius>
+          </cylinder>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <collision name='base_link_fixed_joint_lump__top_display_collision_collision_6'>
+        <pose>-0.185 0 0.85749999999999993 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.20000000000000001 0.23999999999999999 0.040000000000000001</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='base_link_fixed_joint_lump__tray_1_collision_collision_7'>
+        <pose>0.12 0 0.23250000000000001 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.41999999999999998 0.32000000000000001 0.042500000000000003</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='base_link_fixed_joint_lump__tray_2_collision_collision_8'>
+        <pose>0.12 0 0.38250000000000001 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.41999999999999998 0.32000000000000001 0.042500000000000003</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='base_link_fixed_joint_lump__tray_3_collision_collision_9'>
+        <pose>0.12 0 0.53249999999999997 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.41999999999999998 0.32000000000000001 0.042500000000000003</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='base_link_fixed_joint_lump__tray_4_collision_collision_10'>
+        <pose>0.12 0 0.6825 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.41999999999999998 0.32000000000000001 0.042500000000000003</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='base_link_fixed_joint_lump__front_sensor_link_collision_collision_11'>
+        <pose>0.30249999999999999 0 0.11 0 1.5707963267948966 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.017500000000000002</length>
+            <radius>0.022499999999999999</radius>
+          </cylinder>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <collision name='base_link_fixed_joint_lump__rear_sensor_link_collision_collision_12'>
+        <pose>-0.35249999999999998 0 0.11 3.1415923071795868 1.5707963267948966 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.017500000000000002</length>
+            <radius>0.022499999999999999</radius>
+          </cylinder>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='base_link_fixed_joint_lump__lower_chassis_visual'>
+        <pose>-0.025000000000000001 0 0.089999999999999997 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.59999999999999998 0.34999999999999998 0.10000000000000001</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <ambient>1 1 1 1</ambient>
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__upper_deck_visual_1'>
+        <pose>0 0 0.16 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.52500000000000002 0.32000000000000001 0.040000000000000001</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <ambient>1 1 1 1</ambient>
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__front_black_bumper_visual_2'>
+        <pose>0.27500000000000002 0 0.080000000000000002 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.050000000000000003 0.37 0.059999999999999998</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>0.0387500003 0.0487500019 0.0487500019 1</diffuse>
+          <ambient>0.0387500003 0.0487500019 0.0487500019 1</ambient>
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__rear_black_bumper_visual_3'>
+        <pose>-0.32500000000000001 0 0.080000000000000002 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.050000000000000003 0.37 0.059999999999999998</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>0.0387500003 0.0487500019 0.0487500019 1</diffuse>
+          <ambient>0.0387500003 0.0487500019 0.0487500019 1</ambient>
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__left_side_skirt_visual_4'>
+        <pose>-0.014999999999999999 0.186 0.065000000000000002 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.47999999999999998 0.017500000000000002 0.055</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>0.34375 0.402500004 0.392500013 1</diffuse>
+          <ambient>0.34375 0.402500004 0.392500013 1</ambient>
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__right_side_skirt_visual_5'>
+        <pose>-0.014999999999999999 -0.186 0.065000000000000002 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.47999999999999998 0.017500000000000002 0.055</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>0.34375 0.402500004 0.392500013 1</diffuse>
+          <ambient>0.34375 0.402500004 0.392500013 1</ambient>
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__front_red_indicator_left_visual_6'>
+        <pose>0.30249999999999999 0.11 0.11 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.012500000000000001 0.029999999999999999 0.012500000000000001</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>1 0.147500008 0.107500002 1</diffuse>
+          <ambient>1 0.147500008 0.107500002 1</ambient>
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__front_red_indicator_right_visual_7'>
+        <pose>0.30249999999999999 -0.11 0.11 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.012500000000000001 0.029999999999999999 0.012500000000000001</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>1 0.147500008 0.107500002 1</diffuse>
+          <ambient>1 0.147500008 0.107500002 1</ambient>
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__rear_red_indicator_left_visual_8'>
+        <pose>-0.35249999999999998 0.11 0.11 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.012500000000000001 0.029999999999999999 0.012500000000000001</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>1 0.147500008 0.107500002 1</diffuse>
+          <ambient>1 0.147500008 0.107500002 1</ambient>
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__rear_red_indicator_right_visual_9'>
+        <pose>-0.35249999999999998 -0.11 0.11 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.012500000000000001 0.029999999999999999 0.012500000000000001</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>1 0.147500008 0.107500002 1</diffuse>
+          <ambient>1 0.147500008 0.107500002 1</ambient>
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__straight_main_body_visual_10'>
+        <pose>-0.17499999999999999 0 0.48999999999999999 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.16 0.26000000000000001 0.68000000000000005</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <ambient>1 1 1 1</ambient>
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__front_dark_service_panel_visual_11'>
+        <pose>-0.087499999999999994 0 0.47999999999999998 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.012500000000000001 0.20999999999999999 0.54000000000000004</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>0.34375 0.402500004 0.392500013 1</diffuse>
+          <ambient>0.34375 0.402500004 0.392500013 1</ambient>
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__rear_camera_recess_panel_visual_12'>
+        <pose>-0.26250000000000001 0 0.54000000000000004 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.012500000000000001 0.14999999999999999 0.23000000000000001</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>0.0387500003 0.0487500019 0.0487500019 1</diffuse>
+          <ambient>0.0387500003 0.0487500019 0.0487500019 1</ambient>
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__left_vertical_trim_visual_13'>
+        <pose>-0.17499999999999999 0.13900000000000001 0.48999999999999999 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.17000000000000001 0.012500000000000001 0.63</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <ambient>1 1 1 1</ambient>
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__right_vertical_trim_visual_14'>
+        <pose>-0.17499999999999999 -0.13900000000000001 0.48999999999999999 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.17000000000000001 0.012500000000000001 0.63</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <ambient>1 1 1 1</ambient>
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__top_blue_cap_visual_15'>
+        <pose>-0.17499999999999999 0 0.84349999999999992 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.17000000000000001 0.27000000000000002 0.0275</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>0 0.647500038 1 1</diffuse>
+          <ambient>0 0.647500038 1 1</ambient>
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__left_side_camera_housing_visual_16'>
+        <pose>-0.17499999999999999 0.14249999999999999 0.66999999999999993 -1.5707960000000001 1.5707963118937354 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.0275</length>
+            <radius>0.032500000000000001</radius>
+          </cylinder>
+        </geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <ambient>1 1 1 1</ambient>
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__left_side_camera_lens_visual_17'>
+        <pose>-0.1749999957516663 0.15549999999999931 0.66999999999999993 -1.5707960000000001 1.5707963118937354 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.029999999999999999</length>
+            <radius>0.02</radius>
+          </cylinder>
+        </geometry>
+        <material>
+          <diffuse>0.0250000004 0.219999999 0.318749994 0.862999976</diffuse>
+          <ambient>0.0250000004 0.219999999 0.318749994 0.862999976</ambient>
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__left_side_camera_black_ring_visual_18'>
+        <pose>-0.17499999673205099 0.15249999999999941 0.66999999999999993 -1.5707960000000001 1.5707963118937354 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.032000000000000001</length>
+            <radius>0.0235</radius>
+          </cylinder>
+        </geometry>
+        <material>
+          <diffuse>0.0387500003 0.0487500019 0.0487500019 1</diffuse>
+          <ambient>0.0387500003 0.0487500019 0.0487500019 1</ambient>
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__rear_camera_black_panel_visual_19'>
+        <pose>-0.26750000000000002 0 0.55000000000000004 0 0 -3.1415923071795868</pose>
+        <geometry>
+          <box>
+            <size>0.017500000000000002 0.12 0.16</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>0.0387500003 0.0487500019 0.0487500019 1</diffuse>
+          <ambient>0.0387500003 0.0487500019 0.0487500019 1</ambient>
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__rear_camera_silver_ring_visual_20'>
+        <pose>-0.27999999999999919 -4.3301275827424183e-09 0.57250000000000001 3.1415923071795868 1.5707963267948966 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.02</length>
+            <radius>0.035000000000000003</radius>
+          </cylinder>
+        </geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <ambient>1 1 1 1</ambient>
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__rear_camera_glass_lens_visual_21'>
+        <pose>-0.29249999999999848 -8.6602551654848365e-09 0.57250000000000001 3.1415923071795868 1.5707963267948966 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.021999999999999999</length>
+            <radius>0.022499999999999999</radius>
+          </cylinder>
+        </geometry>
+        <material>
+          <diffuse>0.0250000004 0.219999999 0.318749994 0.862999976</diffuse>
+          <ambient>0.0250000004 0.219999999 0.318749994 0.862999976</ambient>
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__rear_small_scanner_slot_visual_22'>
+        <pose>-0.27749999999999941 -3.4641020661939352e-09 0.46750000000000003 0 0 -3.1415923071795868</pose>
+        <geometry>
+          <box>
+            <size>0.016 0.080000000000000002 0.017500000000000002</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>0.0387500003 0.0487500019 0.0487500019 1</diffuse>
+          <ambient>0.0387500003 0.0487500019 0.0487500019 1</ambient>
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__rear_small_red_line_visual_23'>
+        <pose>-0.28799999999999881 -7.1014092356975657e-09 0.46750000000000003 0 0 -3.1415923071795868</pose>
+        <geometry>
+          <box>
+            <size>0.017000000000000001 0.055 0.0050000000000000001</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>1 0.147500008 0.107500002 1</diffuse>
+          <ambient>1 0.147500008 0.107500002 1</ambient>
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__right_side_camera_housing_visual_24'>
+        <pose>-0.17499999999999999 -0.14249999999999999 0.66999999999999993 1.5707960000000001 1.5707963118937354 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.0275</length>
+            <radius>0.032500000000000001</radius>
+          </cylinder>
+        </geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <ambient>1 1 1 1</ambient>
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__right_side_camera_lens_visual_25'>
+        <pose>-0.1749999957516663 -0.15549999999999931 0.66999999999999993 1.5707960000000001 1.5707963118937354 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.029999999999999999</length>
+            <radius>0.02</radius>
+          </cylinder>
+        </geometry>
+        <material>
+          <diffuse>0.0250000004 0.219999999 0.318749994 0.862999976</diffuse>
+          <ambient>0.0250000004 0.219999999 0.318749994 0.862999976</ambient>
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__right_side_camera_black_ring_visual_26'>
+        <pose>-0.17499999673205099 -0.15249999999999941 0.66999999999999993 1.5707960000000001 1.5707963118937354 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.032000000000000001</length>
+            <radius>0.0235</radius>
+          </cylinder>
+        </geometry>
+        <material>
+          <diffuse>0.0387500003 0.0487500019 0.0487500019 1</diffuse>
+          <ambient>0.0387500003 0.0487500019 0.0487500019 1</ambient>
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__top_display_black_housing_visual_27'>
+        <pose>-0.185 0 0.85749999999999993 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.19 0.23000000000000001 0.0275</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>0.0387500003 0.0487500019 0.0487500019 1</diffuse>
+          <ambient>0.0387500003 0.0487500019 0.0487500019 1</ambient>
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__top_display_blue_bezel_visual_28'>
+        <pose>-0.185 0 0.87650000000000006 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.17000000000000001 0.20999999999999999 0.0089999999999999993</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>0 0.647500038 1 1</diffuse>
+          <ambient>0 0.647500038 1 1</ambient>
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__top_display_screen_visual_29'>
+        <pose>-0.185 0 0.88650000000000007 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.12 0.155 0.010500000000000001</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>0.0787499994 0.90625006 1 0.90200001</diffuse>
+          <ambient>0.0787499994 0.90625006 1 0.90200001</ambient>
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__top_display_slot_visual_30'>
+        <pose>-0.105 0 0.88949999999999996 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.014999999999999999 0.11 0.0060000000000000001</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>0.0387500003 0.0487500019 0.0487500019 1</diffuse>
+          <ambient>0.0387500003 0.0487500019 0.0487500019 1</ambient>
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__tray_1_deck_visual_31'>
+        <pose>0.12 0 0.215 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.40999999999999998 0.29999999999999999 0.02</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <ambient>1 1 1 1</ambient>
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__tray_1_dark_inset_visual_32'>
+        <pose>0.13 0 0.23050000000000001 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.35999999999999999 0.25 0.0060000000000000001</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>0.34375 0.402500004 0.392500013 1</diffuse>
+          <ambient>0.34375 0.402500004 0.392500013 1</ambient>
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__tray_1_left_rail_visual_33'>
+        <pose>0.12 0.1575 0.24149999999999999 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.40999999999999998 0.017500000000000002 0.032500000000000001</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <ambient>1 1 1 1</ambient>
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__tray_1_right_rail_visual_34'>
+        <pose>0.12 -0.1575 0.24149999999999999 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.40999999999999998 0.017500000000000002 0.032500000000000001</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <ambient>1 1 1 1</ambient>
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__tray_1_front_rail_visual_35'>
+        <pose>0.32600000000000001 0 0.24149999999999999 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.017500000000000002 0.29999999999999999 0.032500000000000001</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <ambient>1 1 1 1</ambient>
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__tray_1_rear_bracket_visual_36'>
+        <pose>-0.085999999999999993 0 0.23499999999999999 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.017500000000000002 0.29999999999999999 0.059999999999999998</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>0.34375 0.402500004 0.392500013 1</diffuse>
+          <ambient>0.34375 0.402500004 0.392500013 1</ambient>
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__tray_2_deck_visual_37'>
+        <pose>0.12 0 0.36499999999999999 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.40999999999999998 0.29999999999999999 0.02</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <ambient>1 1 1 1</ambient>
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__tray_2_dark_inset_visual_38'>
+        <pose>0.13 0 0.3805 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.35999999999999999 0.25 0.0060000000000000001</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>0.34375 0.402500004 0.392500013 1</diffuse>
+          <ambient>0.34375 0.402500004 0.392500013 1</ambient>
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__tray_2_left_rail_visual_39'>
+        <pose>0.12 0.1575 0.39150000000000001 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.40999999999999998 0.017500000000000002 0.032500000000000001</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <ambient>1 1 1 1</ambient>
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__tray_2_right_rail_visual_40'>
+        <pose>0.12 -0.1575 0.39150000000000001 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.40999999999999998 0.017500000000000002 0.032500000000000001</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <ambient>1 1 1 1</ambient>
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__tray_2_front_rail_visual_41'>
+        <pose>0.32600000000000001 0 0.39150000000000001 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.017500000000000002 0.29999999999999999 0.032500000000000001</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <ambient>1 1 1 1</ambient>
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__tray_2_rear_bracket_visual_42'>
+        <pose>-0.085999999999999993 0 0.38500000000000001 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.017500000000000002 0.29999999999999999 0.059999999999999998</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>0.34375 0.402500004 0.392500013 1</diffuse>
+          <ambient>0.34375 0.402500004 0.392500013 1</ambient>
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__tray_3_deck_visual_43'>
+        <pose>0.12 0 0.51500000000000001 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.40999999999999998 0.29999999999999999 0.02</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <ambient>1 1 1 1</ambient>
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__tray_3_dark_inset_visual_44'>
+        <pose>0.13 0 0.53049999999999997 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.35999999999999999 0.25 0.0060000000000000001</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>0.34375 0.402500004 0.392500013 1</diffuse>
+          <ambient>0.34375 0.402500004 0.392500013 1</ambient>
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__tray_3_left_rail_visual_45'>
+        <pose>0.12 0.1575 0.54149999999999998 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.40999999999999998 0.017500000000000002 0.032500000000000001</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <ambient>1 1 1 1</ambient>
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__tray_3_right_rail_visual_46'>
+        <pose>0.12 -0.1575 0.54149999999999998 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.40999999999999998 0.017500000000000002 0.032500000000000001</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <ambient>1 1 1 1</ambient>
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__tray_3_front_rail_visual_47'>
+        <pose>0.32600000000000001 0 0.54149999999999998 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.017500000000000002 0.29999999999999999 0.032500000000000001</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <ambient>1 1 1 1</ambient>
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__tray_3_rear_bracket_visual_48'>
+        <pose>-0.085999999999999993 0 0.53500000000000003 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.017500000000000002 0.29999999999999999 0.059999999999999998</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>0.34375 0.402500004 0.392500013 1</diffuse>
+          <ambient>0.34375 0.402500004 0.392500013 1</ambient>
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__tray_4_deck_visual_49'>
+        <pose>0.12 0 0.66500000000000004 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.40999999999999998 0.29999999999999999 0.02</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <ambient>1 1 1 1</ambient>
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__tray_4_dark_inset_visual_50'>
+        <pose>0.13 0 0.68049999999999999 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.35999999999999999 0.25 0.0060000000000000001</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>0.34375 0.402500004 0.392500013 1</diffuse>
+          <ambient>0.34375 0.402500004 0.392500013 1</ambient>
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__tray_4_left_rail_visual_51'>
+        <pose>0.12 0.1575 0.6915 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.40999999999999998 0.017500000000000002 0.032500000000000001</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <ambient>1 1 1 1</ambient>
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__tray_4_right_rail_visual_52'>
+        <pose>0.12 -0.1575 0.6915 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.40999999999999998 0.017500000000000002 0.032500000000000001</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <ambient>1 1 1 1</ambient>
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__tray_4_front_rail_visual_53'>
+        <pose>0.32600000000000001 0 0.6915 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.017500000000000002 0.29999999999999999 0.032500000000000001</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <ambient>1 1 1 1</ambient>
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__tray_4_rear_bracket_visual_54'>
+        <pose>-0.085999999999999993 0 0.68499999999999994 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.017500000000000002 0.29999999999999999 0.059999999999999998</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>0.34375 0.402500004 0.392500013 1</diffuse>
+          <ambient>0.34375 0.402500004 0.392500013 1</ambient>
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__front_sensor_link_silver_ring_visual_55'>
+        <pose>0.30249999999999999 0 0.11 0 1.5707963267948966 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.012500000000000001</length>
+            <radius>0.02</radius>
+          </cylinder>
+        </geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <ambient>1 1 1 1</ambient>
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__front_sensor_link_glass_visual_56'>
+        <pose>0.3085 0 0.11 0 1.5707963267948966 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.014999999999999999</length>
+            <radius>0.012999999999999999</radius>
+          </cylinder>
+        </geometry>
+        <material>
+          <diffuse>0.0250000004 0.219999999 0.318749994 0.862999976</diffuse>
+          <ambient>0.0250000004 0.219999999 0.318749994 0.862999976</ambient>
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__rear_sensor_link_silver_ring_visual_57'>
+        <pose>-0.35249999999999998 0 0.11 3.1415923071795868 1.5707963267948966 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.012500000000000001</length>
+            <radius>0.02</radius>
+          </cylinder>
+        </geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <ambient>1 1 1 1</ambient>
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__rear_sensor_link_glass_visual_58'>
+        <pose>-0.3584999999999996 -2.078461239716361e-09 0.11 3.1415923071795868 1.5707963267948966 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.014999999999999999</length>
+            <radius>0.012999999999999999</radius>
+          </cylinder>
+        </geometry>
+        <material>
+          <diffuse>0.0250000004 0.219999999 0.318749994 0.862999976</diffuse>
+          <ambient>0.0250000004 0.219999999 0.318749994 0.862999976</ambient>
+        </material>
+      </visual>
+      <sensor name='front_lidar' type='gpu_lidar'>
+        <always_on>true</always_on>
+        <update_rate>10</update_rate>
+        <topic>scan</topic>
+        <lidar>
+          <scan>
+            <horizontal>
+              <samples>360</samples>
+              <resolution>1</resolution>
+              <min_angle>-3.1415899999999999</min_angle>
+              <max_angle>3.1415899999999999</max_angle>
+            </horizontal>
+            <vertical>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>0</min_angle>
+              <max_angle>0</max_angle>
+            </vertical>
+          </scan>
+          <range>
+            <min>0.10000000000000001</min>
+            <max>10</max>
+            <resolution>0.01</resolution>
+          </range>
+          <noise>
+            <type>gaussian</type>
+            <mean>0</mean>
+            <stddev>0.01</stddev>
+          </noise>
+        </lidar>
+        <pose>0.30249999999999999 0 0.11 0 0 0</pose>
+      </sensor>
+      <sensor name='front_camera' type='camera'>
+        <always_on>true</always_on>
+        <update_rate>30</update_rate>
+        <camera name='front_camera'>
+          <horizontal_fov>1.0469999999999999</horizontal_fov>
+          <image>
+            <width>640</width>
+            <height>480</height>
+            <format>R8G8B8</format>
+          </image>
+          <clip>
+            <near>0.050000000000000003</near>
+            <far>100</far>
+          </clip>
+        </camera>
+        <pose>0.30249999999999999 0 0.11 0 0 0</pose>
+      </sensor>
+    </link>
+    <joint name='front_left_wheel_joint' type='revolute'>
+      <pose relative_to='base_link'>0.215 0.20499999999999999 0.080000000000000002 0 0 0</pose>
+      <parent>base_link</parent>
+      <child>front_left_wheel_link</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-inf</lower>
+          <upper>inf</upper>
+        </limit>
+        <dynamics>
+          <damping>0.02</damping>
+          <friction>0.01</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='front_left_wheel_link'>
+      <pose relative_to='front_left_wheel_joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.25</mass>
+        <inertia>
+          <ixx>0.00044219000000000002</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00080000000000000004</iyy>
+          <iyz>0</iyz>
+          <izz>0.00044219000000000002</izz>
+        </inertia>
+      </inertial>
+      <collision name='front_left_wheel_link_fixed_joint_lump__wheel_collision_collision'>
+        <pose>0 0 0 -1.5707959999999999 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.044999999999999998</length>
+            <radius>0.080000000000000002</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name='front_left_wheel_link_rubber_tire_visual'>
+        <pose>0 0 0 -1.5707959999999999 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.044999999999999998</length>
+            <radius>0.080000000000000002</radius>
+          </cylinder>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Black</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+          <diffuse>0.0887500048 0.0887500048 0.0887500048 1</diffuse>
+          <ambient>0.0887500048 0.0887500048 0.0887500048 1</ambient>
+        </material>
+      </visual>
+      <visual name='front_left_wheel_link_silver_hub_visual_1'>
+        <pose>0 0 0 -1.5707959999999999 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.049000000000000002</length>
+            <radius>0.057500000000000002</radius>
+          </cylinder>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Black</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+          <diffuse>1 1 1 1</diffuse>
+          <ambient>1 1 1 1</ambient>
+        </material>
+      </visual>
+      <visual name='front_left_wheel_link_dark_center_cap_visual_2'>
+        <pose>0 0 0 -1.5707959999999999 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.050999999999999997</length>
+            <radius>0.025999999999999999</radius>
+          </cylinder>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Black</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+          <diffuse>0.34375 0.402500004 0.392500013 1</diffuse>
+          <ambient>0.34375 0.402500004 0.392500013 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name='front_right_wheel_joint' type='revolute'>
+      <pose relative_to='base_link'>0.215 -0.20499999999999999 0.080000000000000002 0 0 0</pose>
+      <parent>base_link</parent>
+      <child>front_right_wheel_link</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-inf</lower>
+          <upper>inf</upper>
+        </limit>
+        <dynamics>
+          <damping>0.02</damping>
+          <friction>0.01</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='front_right_wheel_link'>
+      <pose relative_to='front_right_wheel_joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.25</mass>
+        <inertia>
+          <ixx>0.00044219000000000002</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00080000000000000004</iyy>
+          <iyz>0</iyz>
+          <izz>0.00044219000000000002</izz>
+        </inertia>
+      </inertial>
+      <collision name='front_right_wheel_link_fixed_joint_lump__wheel_collision_collision'>
+        <pose>0 0 0 -1.5707959999999999 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.044999999999999998</length>
+            <radius>0.080000000000000002</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name='front_right_wheel_link_rubber_tire_visual'>
+        <pose>0 0 0 -1.5707959999999999 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.044999999999999998</length>
+            <radius>0.080000000000000002</radius>
+          </cylinder>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Black</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+          <diffuse>0.0887500048 0.0887500048 0.0887500048 1</diffuse>
+          <ambient>0.0887500048 0.0887500048 0.0887500048 1</ambient>
+        </material>
+      </visual>
+      <visual name='front_right_wheel_link_silver_hub_visual_1'>
+        <pose>0 0 0 -1.5707959999999999 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.049000000000000002</length>
+            <radius>0.057500000000000002</radius>
+          </cylinder>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Black</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+          <diffuse>1 1 1 1</diffuse>
+          <ambient>1 1 1 1</ambient>
+        </material>
+      </visual>
+      <visual name='front_right_wheel_link_dark_center_cap_visual_2'>
+        <pose>0 0 0 -1.5707959999999999 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.050999999999999997</length>
+            <radius>0.025999999999999999</radius>
+          </cylinder>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Black</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+          <diffuse>0.34375 0.402500004 0.392500013 1</diffuse>
+          <ambient>0.34375 0.402500004 0.392500013 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name='rear_left_wheel_joint' type='revolute'>
+      <pose relative_to='base_link'>-0.245 0.20499999999999999 0.080000000000000002 0 0 0</pose>
+      <parent>base_link</parent>
+      <child>rear_left_wheel_link</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-inf</lower>
+          <upper>inf</upper>
+        </limit>
+        <dynamics>
+          <damping>0.02</damping>
+          <friction>0.01</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='rear_left_wheel_link'>
+      <pose relative_to='rear_left_wheel_joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.25</mass>
+        <inertia>
+          <ixx>0.00044219000000000002</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00080000000000000004</iyy>
+          <iyz>0</iyz>
+          <izz>0.00044219000000000002</izz>
+        </inertia>
+      </inertial>
+      <collision name='rear_left_wheel_link_fixed_joint_lump__wheel_collision_collision'>
+        <pose>0 0 0 -1.5707959999999999 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.044999999999999998</length>
+            <radius>0.080000000000000002</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name='rear_left_wheel_link_rubber_tire_visual'>
+        <pose>0 0 0 -1.5707959999999999 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.044999999999999998</length>
+            <radius>0.080000000000000002</radius>
+          </cylinder>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Black</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+          <diffuse>0.0887500048 0.0887500048 0.0887500048 1</diffuse>
+          <ambient>0.0887500048 0.0887500048 0.0887500048 1</ambient>
+        </material>
+      </visual>
+      <visual name='rear_left_wheel_link_silver_hub_visual_1'>
+        <pose>0 0 0 -1.5707959999999999 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.049000000000000002</length>
+            <radius>0.057500000000000002</radius>
+          </cylinder>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Black</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+          <diffuse>1 1 1 1</diffuse>
+          <ambient>1 1 1 1</ambient>
+        </material>
+      </visual>
+      <visual name='rear_left_wheel_link_dark_center_cap_visual_2'>
+        <pose>0 0 0 -1.5707959999999999 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.050999999999999997</length>
+            <radius>0.025999999999999999</radius>
+          </cylinder>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Black</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+          <diffuse>0.34375 0.402500004 0.392500013 1</diffuse>
+          <ambient>0.34375 0.402500004 0.392500013 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name='rear_right_wheel_joint' type='revolute'>
+      <pose relative_to='base_link'>-0.245 -0.20499999999999999 0.080000000000000002 0 0 0</pose>
+      <parent>base_link</parent>
+      <child>rear_right_wheel_link</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-inf</lower>
+          <upper>inf</upper>
+        </limit>
+        <dynamics>
+          <damping>0.02</damping>
+          <friction>0.01</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='rear_right_wheel_link'>
+      <pose relative_to='rear_right_wheel_joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.25</mass>
+        <inertia>
+          <ixx>0.00044219000000000002</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00080000000000000004</iyy>
+          <iyz>0</iyz>
+          <izz>0.00044219000000000002</izz>
+        </inertia>
+      </inertial>
+      <collision name='rear_right_wheel_link_fixed_joint_lump__wheel_collision_collision'>
+        <pose>0 0 0 -1.5707959999999999 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.044999999999999998</length>
+            <radius>0.080000000000000002</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name='rear_right_wheel_link_rubber_tire_visual'>
+        <pose>0 0 0 -1.5707959999999999 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.044999999999999998</length>
+            <radius>0.080000000000000002</radius>
+          </cylinder>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Black</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+          <diffuse>0.0887500048 0.0887500048 0.0887500048 1</diffuse>
+          <ambient>0.0887500048 0.0887500048 0.0887500048 1</ambient>
+        </material>
+      </visual>
+      <visual name='rear_right_wheel_link_silver_hub_visual_1'>
+        <pose>0 0 0 -1.5707959999999999 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.049000000000000002</length>
+            <radius>0.057500000000000002</radius>
+          </cylinder>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Black</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+          <diffuse>1 1 1 1</diffuse>
+          <ambient>1 1 1 1</ambient>
+        </material>
+      </visual>
+      <visual name='rear_right_wheel_link_dark_center_cap_visual_2'>
+        <pose>0 0 0 -1.5707959999999999 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.050999999999999997</length>
+            <radius>0.025999999999999999</radius>
+          </cylinder>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Black</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+          <diffuse>0.34375 0.402500004 0.392500013 1</diffuse>
+          <ambient>0.34375 0.402500004 0.392500013 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <plugin name='gz::sim::systems::DiffDrive' filename='gz-sim-diff-drive-system'>
+      <left_joint>front_left_wheel_joint</left_joint>
+      <left_joint>rear_left_wheel_joint</left_joint>
+      <right_joint>front_right_wheel_joint</right_joint>
+      <right_joint>rear_right_wheel_joint</right_joint>
+      <wheel_separation>0.41</wheel_separation>
+      <wheel_radius>0.08</wheel_radius>
+      <odom_frame_id>odom</odom_frame_id>
+      <child_frame_id>base_link</child_frame_id>
+    </plugin>
+    <frame name='left_side_camera_optical_frame_joint' attached_to='left_side_camera_link'>
+      <pose>0 0 0 -1.5707959999999999 0 -1.5707959999999999</pose>
+    </frame>
+    <frame name='left_side_camera_optical_frame' attached_to='left_side_camera_optical_frame_joint'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='body_to_left_side_camera_link_joint' attached_to='body_link'>
+      <pose>0 0.14249999999999999 0.17999999999999999 0 0 1.5707959999999999</pose>
+    </frame>
+    <frame name='left_side_camera_link' attached_to='body_to_left_side_camera_link_joint'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='rear_camera_optical_joint' attached_to='rear_camera_link'>
+      <pose>0 0 0 -1.5707959999999999 0 -1.5707959999999999</pose>
+    </frame>
+    <frame name='rear_camera_optical_frame' attached_to='rear_camera_optical_joint'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='body_to_rear_camera_joint' attached_to='body_link'>
+      <pose>-0.092499999999999999 0 0.059999999999999998 0 0 -3.1415923071795868</pose>
+    </frame>
+    <frame name='rear_camera_link' attached_to='body_to_rear_camera_joint'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='right_side_camera_optical_frame_joint' attached_to='right_side_camera_link'>
+      <pose>0 0 0 -1.5707959999999999 0 -1.5707959999999999</pose>
+    </frame>
+    <frame name='right_side_camera_optical_frame' attached_to='right_side_camera_optical_frame_joint'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='body_to_right_side_camera_link_joint' attached_to='body_link'>
+      <pose>0 -0.14249999999999999 0.17999999999999999 0 0 -1.5707959999999999</pose>
+    </frame>
+    <frame name='right_side_camera_link' attached_to='body_to_right_side_camera_link_joint'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='body_to_top_display_joint' attached_to='body_link'>
+      <pose>-0.01 0 0.36749999999999999 0 0 0</pose>
+    </frame>
+    <frame name='top_display_link' attached_to='body_to_top_display_joint'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='tray_1_surface_frame_joint' attached_to='tray_1_link'>
+      <pose>0 0 0.040000000000000001 0 0 0</pose>
+    </frame>
+    <frame name='tray_1_surface_frame' attached_to='tray_1_surface_frame_joint'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='tray_1_joint' attached_to='body_link'>
+      <pose>0.29499999999999998 0 -0.27500000000000002 0 0 0</pose>
+    </frame>
+    <frame name='tray_1_link' attached_to='tray_1_joint'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='tray_2_surface_frame_joint' attached_to='tray_2_link'>
+      <pose>0 0 0.040000000000000001 0 0 0</pose>
+    </frame>
+    <frame name='tray_2_surface_frame' attached_to='tray_2_surface_frame_joint'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='tray_2_joint' attached_to='body_link'>
+      <pose>0.29499999999999998 0 -0.125 0 0 0</pose>
+    </frame>
+    <frame name='tray_2_link' attached_to='tray_2_joint'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='tray_3_surface_frame_joint' attached_to='tray_3_link'>
+      <pose>0 0 0.040000000000000001 0 0 0</pose>
+    </frame>
+    <frame name='tray_3_surface_frame' attached_to='tray_3_surface_frame_joint'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='tray_3_joint' attached_to='body_link'>
+      <pose>0.29499999999999998 0 0.025000000000000001 0 0 0</pose>
+    </frame>
+    <frame name='tray_3_link' attached_to='tray_3_joint'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='tray_4_surface_frame_joint' attached_to='tray_4_link'>
+      <pose>0 0 0.040000000000000001 0 0 0</pose>
+    </frame>
+    <frame name='tray_4_surface_frame' attached_to='tray_4_surface_frame_joint'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='tray_4_joint' attached_to='body_link'>
+      <pose>0.29499999999999998 0 0.17499999999999999 0 0 0</pose>
+    </frame>
+    <frame name='tray_4_link' attached_to='tray_4_joint'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='base_to_body_joint' attached_to='base_link'>
+      <pose>-0.17499999999999999 0 0.48999999999999999 0 0 0</pose>
+    </frame>
+    <frame name='body_link' attached_to='base_to_body_joint'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='front_camera_optical_joint' attached_to='front_sensor_link'>
+      <pose>0 0 0 -1.5707959999999999 0 -1.5707959999999999</pose>
+    </frame>
+    <frame name='front_camera_optical_frame' attached_to='front_camera_optical_joint'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='front_sensor_link_joint' attached_to='base_link'>
+      <pose>0.30249999999999999 0 0.11 0 0 0</pose>
+    </frame>
+    <frame name='front_sensor_link' attached_to='front_sensor_link_joint'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='rear_sensor_link_joint' attached_to='base_link'>
+      <pose>-0.35249999999999998 0 0.11 0 0 -3.1415923071795868</pose>
+    </frame>
+    <frame name='rear_sensor_link' attached_to='rear_sensor_link_joint'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+  </model>
   </world>
 </sdf>

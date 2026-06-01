@@ -26,10 +26,11 @@ def generate_launch_description():
     world_file = PathJoinSubstitution([pkg_share, "worlds", "small_house.world"])
     sim_time = {"use_sim_time": True}
 
-    gz_sim = ExecuteProcess(cmd=["gz", "sim", "-r", "-v", "1", world_file], output="screen")
+    gz_sim = ExecuteProcess(cmd=["gz", "sim", "-s", "-r", "-v", "1", world_file], output="screen")
     rsp = Node(package="robot_state_publisher", executable="robot_state_publisher", output="screen", parameters=[robot_description, sim_time])
-    bridge = Node(package="ros_gz_bridge", executable="parameter_bridge", arguments=["/cmd_vel@geometry_msgs/msg/Twist]gz.msgs.Twist", "/model/service_robot_cart/odometry@nav_msgs/msg/Odometry[gz.msgs.Odometry", "/scan@sensor_msgs/msg/LaserScan[gz.msgs.LaserScan"], parameters=[sim_time], output="screen")
+    bridge = Node(package="ros_gz_bridge", executable="parameter_bridge", arguments=["/cmd_vel@geometry_msgs/msg/Twist@gz.msgs.Twist", "/model/service_robot_cart/cmd_vel@geometry_msgs/msg/Twist@gz.msgs.Twist", "/scan@sensor_msgs/msg/LaserScan@gz.msgs.LaserScan"], parameters=[sim_time], output="screen")
     clock_bridge = Node(package="service_robot_cart_description", executable="clock_bridge.py", output="screen")
+    cmd_vel_relay = Node(package="service_robot_cart_description", executable="cmd_vel_relay.py", output="screen", parameters=[sim_time])
     odom_bridge = Node(package="service_robot_cart_description", executable="odom_bridge.py", output="screen", parameters=[sim_time])
     lidar_tf = Node(package="tf2_ros", executable="static_transform_publisher", arguments=["0", "0", "0.15", "0", "0", "0", "base_link", "service_robot_cart/base_link/front_lidar"])
 
@@ -41,4 +42,4 @@ def generate_launch_description():
     frontier_params = pkg_path + "/config/frontier_params.yaml"
     explore = TimerAction(period=50.0, actions=[Node(package="frontier_exploration_ros2", executable="frontier_explorer", name="frontier_explorer", output="screen", parameters=[frontier_params, sim_time, {"robot_base_frame": "base_link", "autostart": True, "mrtsp_solver": "greedy", "escape_enabled": True, "frontier_selection_min_distance": 0.6, "frontier_candidate_min_goal_distance_m": 0.6, "occ_threshold": 65, "min_frontier_size_cells": 5}])])
 
-    return LaunchDescription([SetEnvironmentVariable("GZ_SIM_SYSTEM_PLUGIN_PATH", "/opt/ros/jazzy/lib:/usr/lib/x86_64-linux-gnu/gz-sim-8/plugins"), SetEnvironmentVariable("GZ_IP", wsl_ip), SetEnvironmentVariable("GZ_SIM_RESOURCE_PATH", models_path), gz_sim, rsp, bridge, clock_bridge, odom_bridge, lidar_tf, slam_node, slam_activate, nav2_nodes, explore])
+    return LaunchDescription([SetEnvironmentVariable("GZ_SIM_SYSTEM_PLUGIN_PATH", "/opt/ros/jazzy/lib:/usr/lib/x86_64-linux-gnu/gz-sim-8/plugins"), SetEnvironmentVariable("GZ_IP", wsl_ip), SetEnvironmentVariable("GZ_SIM_RESOURCE_PATH", models_path), gz_sim, rsp, bridge, clock_bridge, cmd_vel_relay, odom_bridge, lidar_tf, slam_node, slam_activate, nav2_nodes, explore])

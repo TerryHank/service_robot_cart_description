@@ -873,14 +873,6 @@
           <ambient>0.0250000004 0.219999999 0.318749994 0.862999976</ambient>
         </material>
       </visual>
-      <sensor name='imu_sensor' type='imu'>
-        <always_on>true</always_on>
-        <update_rate>200</update_rate>
-        <plugin name='gz::sim::systems::Imu' filename='gz-sim-imu-system'>
-          <topic>imu</topic>
-        </plugin>
-        <imu/>
-      </sensor>
       <sensor name='front_lidar' type='gpu_lidar'>
         <always_on>true</always_on>
         <update_rate>10</update_rate>
@@ -1310,11 +1302,8 @@
       <right_joint>rear_right_wheel_joint</right_joint>
       <wheel_separation>0.41</wheel_separation>
       <wheel_radius>0.08</wheel_radius>
-      <topic>/cmd_vel</topic>
-      <odom_topic>/odom</odom_topic>
       <odom_frame_id>odom</odom_frame_id>
       <child_frame_id>base_link</child_frame_id>
-      <tf_topic>/tf</tf_topic>
     </plugin>
     <frame name='left_side_camera_optical_frame_joint' attached_to='left_side_camera_link'>
       <pose>0 0 0 -1.5707959999999999 0 -1.5707959999999999</pose>

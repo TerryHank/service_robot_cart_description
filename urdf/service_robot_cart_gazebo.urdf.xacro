@@ -3,52 +3,17 @@
 
   <xacro:include filename="$(find service_robot_cart_description)/urdf/service_robot_cart_geometric.urdf.xacro"/>
 
-  <!-- ===== ros2_control hardware interface ===== -->
-  <ros2_control name="gz_ros2_control" type="system">
-    <hardware>
-      <plugin>gz_ros2_control/GazeboSimSystem</plugin>
-    </hardware>
-    <joint name="front_left_wheel_joint">
-      <command_interface name="velocity">
-        <param name="min">-10</param>
-        <param name="max">10</param>
-      </command_interface>
-      <state_interface name="position"/>
-      <state_interface name="velocity"/>
-    </joint>
-    <joint name="rear_left_wheel_joint">
-      <command_interface name="velocity">
-        <param name="min">-10</param>
-        <param name="max">10</param>
-      </command_interface>
-      <state_interface name="position"/>
-      <state_interface name="velocity"/>
-    </joint>
-    <joint name="front_right_wheel_joint">
-      <command_interface name="velocity">
-        <param name="min">-10</param>
-        <param name="max">10</param>
-      </command_interface>
-      <state_interface name="position"/>
-      <state_interface name="velocity"/>
-    </joint>
-    <joint name="rear_right_wheel_joint">
-      <command_interface name="velocity">
-        <param name="min">-10</param>
-        <param name="max">10</param>
-      </command_interface>
-      <state_interface name="position"/>
-      <state_interface name="velocity"/>
-    </joint>
-  </ros2_control>
-
-  <!-- ===== gz_ros2_control plugin (MODEL level) ===== -->
+  <!-- ===== Gazebo native diff drive plugin ===== -->
   <gazebo>
-    <plugin filename="gz_ros2_control-system"
-            name="gz_ros2_control::GazeboSimROS2ControlPlugin">
-      <robot_param>robot_description</robot_param>
-      <robot_param_node>robot_state_publisher</robot_param_node>
-      <parameters>$(find service_robot_cart_description)/config/controllers.yaml</parameters>
+    <plugin filename="gz-sim-diff-drive-system" name="gz::sim::systems::DiffDrive">
+      <left_joint>front_left_wheel_joint</left_joint>
+      <left_joint>rear_left_wheel_joint</left_joint>
+      <right_joint>front_right_wheel_joint</right_joint>
+      <right_joint>rear_right_wheel_joint</right_joint>
+      <wheel_separation>0.41</wheel_separation>
+      <wheel_radius>0.08</wheel_radius>
+      <odom_frame_id>odom</odom_frame_id>
+      <child_frame_id>base_link</child_frame_id>
     </plugin>
   </gazebo>
 
