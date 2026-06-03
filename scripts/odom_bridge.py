@@ -10,6 +10,7 @@ from gz.msgs10.pose_v_pb2 import Pose_V
 
 class OdomBridge(Node):
     def __init__(self):
+
         super().__init__("odom_bridge")
         self.odom_pub = self.create_publisher(Odometry, "/odom", 10)
         self.tf_broadcaster = TransformBroadcaster(self)
@@ -25,17 +26,21 @@ class OdomBridge(Node):
     def cb(self, msg: Pose_V):
         for p in msg.pose:
             if p.name == "service_robot_cart":
+                sec = msg.header.stamp.sec if msg.header.stamp.sec else 0
+                nsec = msg.header.stamp.nsec
                 self.pose_data = (p.position.x, p.position.y, p.position.z,
                                   p.orientation.x, p.orientation.y,
-                                  p.orientation.z, p.orientation.w)
+                                  p.orientation.z, p.orientation.w, sec, nsec)
                 break
 
     def spin_loop(self):
         while rclpy.ok():
             time.sleep(0.01)
             if self.pose_data is not None:
-                x,y,z,qx,qy,qz,qw = self.pose_data
+                x,y,z,qx,qy,qz,qw,sec,nsec = self.pose_data
                 self.pose_data = None
+                # Always use ROS clock for monotonic timestamps
+                # (Gazebo Pose_V timestamps can jump backward)
                 now = self.get_clock().now()
                 twist = Twist()
                 if self.last_time is not None:

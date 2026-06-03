@@ -38,6 +38,22 @@ class ClockBridge(Node):
             count = self.gz_count
         if data is None:
             return
+        # Monotonic guard: reject backward time jumps from Gazebo
+        new_ns = data[0] * 1_000_000_000 + data[1]
+        if hasattr(self, "_last_pub_ns") and new_ns < self._last_pub_ns:
+            # Backward jump detected, hold last time (minimal 1ns forward)
+            sec = self._last_pub_ns // 1_000_000_000
+            nsec = self._last_pub_ns % 1_000_000_000 + 1
+            if nsec >= 1_000_000_000:
+                sec += 1
+                nsec = 0
+            self._last_pub_ns = sec * 1_000_000_000 + nsec
+            msg = Clock()
+            msg.clock.sec = int(sec)
+            msg.clock.nanosec = int(nsec)
+            self.pub.publish(msg)
+            return
+        self._last_pub_ns = new_ns
         # Log once every 1000 publishes
         if count == 1 and not hasattr(self, "_logged_first"):
             self._logged_first = True
