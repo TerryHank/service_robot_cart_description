@@ -903,7 +903,7 @@
             <stddev>0.01</stddev>
           </noise>
         </lidar>
-        <pose>0.0 0 0.12 0 0 0</pose>
+        <pose>0.0 0 0.15 0 0 0</pose>
       </sensor>
       <sensor name='front_camera' type='camera'>
         <always_on>true</always_on>
@@ -920,7 +920,7 @@
             <far>100</far>
           </clip>
         </camera>
-        <pose>0.0 0 0.12 0 0 0</pose>
+        <pose>0.0 0 0.15 0 0 0</pose>
       </sensor>
     </link>
     <joint name='front_left_wheel_joint' type='revolute'>
@@ -1408,7 +1408,7 @@
       <pose>0 0 0 0 0 0</pose>
     </frame>
     <frame name='front_sensor_link_joint' attached_to='base_link'>
-      <pose>0.0 0 0.12 0 0 0</pose>
+      <pose>0.0 0 0.15 0 0 0</pose>
     </frame>
     <frame name='front_sensor_link' attached_to='front_sensor_link_joint'>
       <pose>0 0 0 0 0 0</pose>

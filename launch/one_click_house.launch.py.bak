@@ -33,18 +33,13 @@ def generate_launch_description():
     rsp = Node(package="robot_state_publisher", executable="robot_state_publisher",
                output="screen", parameters=[robot_description, sim_time])
 
-    # Joint state publisher: publishes default joint states so RSP can
-    # compute transforms for continuous joints (wheel links -> base_link)
-    jsp = Node(package="joint_state_publisher", executable="joint_state_publisher",
-               output="screen", parameters=[{"use_sim_time": False}])
-
     # Bridge: LiDAR scan + cmd_vel
     bridge = Node(package="ros_gz_bridge", executable="parameter_bridge",
                   arguments=["/scan@sensor_msgs/msg/LaserScan[gz.msgs.LaserScan"],
                   parameters=[sim_time], output="screen")
 
     # Custom clock bridge: gz sim time -> ROS /clock (fixes ros_gz_bridge wall-time bug)
-    clock_bridge = Node(package="service_robot_cart_description",
+    #clock_bridge = Node(package="service_robot_cart_description",
                          executable="clock_bridge.py", output="screen")
 
     # Joint velocity bridge: ROS Float64 -> GZ Double
@@ -164,7 +159,7 @@ def generate_launch_description():
         SetEnvironmentVariable("GZ_SIM_RESOURCE_PATH", models_path),
 
         # Phase 0 (t=0)
-        gz_sim, rsp, jsp, bridge, clock_bridge, joint_bridge, joint_ctrl, odom_bridge, lidar_tf,
+        gz_sim, rsp, bridge, #clock_bridge, joint_bridge, joint_ctrl, odom_bridge, lidar_tf,
 
         # Phase 1 (t=25-30s)
         slam_node, slam_lifecycle,
