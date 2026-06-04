@@ -787,13 +787,13 @@
   <joint name="base_to_body_joint" type="fixed">
     <parent link="base_link"/>
     <child link="body_link"/>
-    <origin xyz="-0.175 0.0 0.55" rpy="0 0 0"/>
+    <origin xyz="-0.175 0.0 0.49" rpy="0 0 0"/>
   </joint>
 
   <joint name="tray_1_joint" type="fixed">
     <parent link="body_link"/>
     <child link="tray_1_link"/>
-    <origin xyz="0.295 0.0 -0.275" rpy="0 0 0"/>
+    <origin xyz="0.295 0.0 -0.215" rpy="0 0 0"/>
   </joint>
 
   <joint name="tray_1_surface_frame_joint" type="fixed">
@@ -805,7 +805,7 @@
   <joint name="tray_2_joint" type="fixed">
     <parent link="body_link"/>
     <child link="tray_2_link"/>
-    <origin xyz="0.295 0.0 -0.125" rpy="0 0 0"/>
+    <origin xyz="0.295 0.0 -0.065" rpy="0 0 0"/>
   </joint>
 
   <joint name="tray_2_surface_frame_joint" type="fixed">
@@ -817,7 +817,7 @@
   <joint name="tray_3_joint" type="fixed">
     <parent link="body_link"/>
     <child link="tray_3_link"/>
-    <origin xyz="0.295 0.0 0.025" rpy="0 0 0"/>
+    <origin xyz="0.295 0.0 0.085" rpy="0 0 0"/>
   </joint>
 
   <joint name="tray_3_surface_frame_joint" type="fixed">
@@ -829,7 +829,7 @@
   <joint name="tray_4_joint" type="fixed">
     <parent link="body_link"/>
     <child link="tray_4_link"/>
-    <origin xyz="0.295 0.0 0.175" rpy="0 0 0"/>
+    <origin xyz="0.295 0.0 0.235" rpy="0 0 0"/>
   </joint>
 
   <joint name="tray_4_surface_frame_joint" type="fixed">

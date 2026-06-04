@@ -30,7 +30,7 @@
         </geometry>
       </collision>
       <collision name='base_link_fixed_joint_lump__body_collision_collision_2'>
-        <pose>-0.17499999999999999 0 0.55 0 0 0</pose>
+        <pose>-0.17499999999999999 0 0.48999999999999999 0 0 0</pose>
         <geometry>
           <box>
             <size>0.16 0.26000000000000001 0.68000000000000005</size>
@@ -274,7 +274,7 @@
         </material>
       </visual>
       <visual name='base_link_fixed_joint_lump__straight_main_body_visual_10'>
-        <pose>-0.17499999999999999 0 0.55 0 0 0</pose>
+        <pose>-0.17499999999999999 0 0.48999999999999999 0 0 0</pose>
         <geometry>
           <box>
             <size>0.16 0.26000000000000001 0.68000000000000005</size>
@@ -1354,7 +1354,7 @@
       <pose>0 0 0 0 0 0</pose>
     </frame>
     <frame name='tray_1_joint' attached_to='body_link'>
-      <pose>0.29499999999999998 0 -0.27500000000000002 0 0 0</pose>
+      <pose>0.29499999999999998 0 -0.215 0 0 0</pose>
     </frame>
     <frame name='tray_1_link' attached_to='tray_1_joint'>
       <pose>0 0 0 0 0 0</pose>
@@ -1366,7 +1366,7 @@
       <pose>0 0 0 0 0 0</pose>
     </frame>
     <frame name='tray_2_joint' attached_to='body_link'>
-      <pose>0.29499999999999998 0 -0.125 0 0 0</pose>
+      <pose>0.29499999999999998 0 -0.065 0 0 0</pose>
     </frame>
     <frame name='tray_2_link' attached_to='tray_2_joint'>
       <pose>0 0 0 0 0 0</pose>
@@ -1378,7 +1378,7 @@
       <pose>0 0 0 0 0 0</pose>
     </frame>
     <frame name='tray_3_joint' attached_to='body_link'>
-      <pose>0.29499999999999998 0 0.025000000000000001 0 0 0</pose>
+      <pose>0.29499999999999998 0 0.085 0 0 0</pose>
     </frame>
     <frame name='tray_3_link' attached_to='tray_3_joint'>
       <pose>0 0 0 0 0 0</pose>
@@ -1390,13 +1390,13 @@
       <pose>0 0 0 0 0 0</pose>
     </frame>
     <frame name='tray_4_joint' attached_to='body_link'>
-      <pose>0.29499999999999998 0 0.17499999999999999 0 0 0</pose>
+      <pose>0.29499999999999998 0 0.235 0 0 0</pose>
     </frame>
     <frame name='tray_4_link' attached_to='tray_4_joint'>
       <pose>0 0 0 0 0 0</pose>
     </frame>
     <frame name='base_to_body_joint' attached_to='base_link'>
-      <pose>-0.17499999999999999 0 0.55 0 0 0</pose>
+      <pose>-0.17499999999999999 0 0.48999999999999999 0 0 0</pose>
     </frame>
     <frame name='body_link' attached_to='base_to_body_joint'>
       <pose>0 0 0 0 0 0</pose>
