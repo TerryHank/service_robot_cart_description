@@ -903,7 +903,7 @@
             <stddev>0.01</stddev>
           </noise>
         </lidar>
-        <pose>0.0 0 0.18 0 1.570796 3.141593</pose>
+        <pose>0.0 0 0.20 0 1.570796 3.141593</pose>
       </sensor>
       <sensor name='front_camera' type='camera'>
         <always_on>true</always_on>

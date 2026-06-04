@@ -915,7 +915,7 @@
   <joint name="front_sensor_link_joint" type="fixed">
     <parent link="base_link"/>
     <child link="front_sensor_link"/>
-    <origin xyz="0.0 0.0 0.18" rpy="0 1.570796 3.141593"/>
+    <origin xyz="0.0 0.0 0.20" rpy="0 1.570796 3.141593"/>
   </joint>
 
   <joint name="rear_sensor_link_joint" type="fixed">
