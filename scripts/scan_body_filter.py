@@ -16,7 +16,8 @@ class ScanBodyFilter(Node):
     def cb(self, msg: LaserScan):
         half = math.radians(self.get_parameter('mask_half_width_deg').value)
         filtered = LaserScan()
-        filtered.header = msg.header
+        filtered.header.stamp = self.get_clock().now().to_msg()
+        filtered.header.frame_id = msg.header.frame_id
         filtered.angle_min = msg.angle_min
         filtered.angle_max = msg.angle_max
         filtered.angle_increment = msg.angle_increment

@@ -72,15 +72,7 @@ def generate_launch_description():
     # Scan body filter: mask body_link angles from /scan_raw to /scan
     scan_filter = Node(package="service_robot_cart_description",
                        executable="scan_body_filter.py",
-                       output="screen")
-
-    # Spawn robot from URDF/xacro (t=5s, after Gazebo ready)
-    spawn_robot = TimerAction(period=5.0, actions=[
-        Node(package="ros_gz_sim", executable="create",
-             arguments=["-name", "service_robot_cart", "-topic", "robot_description",
-                        "-x", "0.0", "-y", "0.0", "-z", "0.05"],
-             output="screen")
-    ])
+                       output="screen", parameters=[sim_time])
 
     # ===== Phase 1: SLAM (t=25s) =====
     # Inline params (YAML file loading is unreliable in ROS2)
@@ -116,17 +108,10 @@ def generate_launch_description():
              parameters=[slam_params])])
 
     # Lifecycle manager for SLAM auto-activation
-    # RViz2 with pre-configured displays (t=30s)
-    rviz = TimerAction(period=30.0, actions=[
-        Node(package="rviz2", executable="rviz2",
-             arguments=["-d", pkg_path + "/rviz/service_robot_cart.rviz"],
-             output="screen")
-    ])
-
     slam_lifecycle = TimerAction(period=30.0, actions=[
         Node(package="nav2_lifecycle_manager", executable="lifecycle_manager",
              name="lifecycle_manager_slam", output="screen",
-             parameters=[{"use_sim_time": False, "autostart": True,
+             parameters=[{"use_sim_time": False, "autostart": True, "bond_timeout": 30.0,
                           "node_names": ["slam_toolbox"]}])])
 
     # ===== Phase 2: Nav2 stack (t=35s) =====
@@ -151,7 +136,7 @@ def generate_launch_description():
                          ("cmd_vel_smoothed", "/cmd_vel")]),
         Node(package="nav2_lifecycle_manager", executable="lifecycle_manager",
              name="lifecycle_manager_navigation", output="screen",
-             parameters=[sim_time, {"autostart": True,
+             parameters=[sim_time, {"autostart": True, "bond_timeout": 30.0,
                         "node_names": ["controller_server", "smoother_server",
                                        "planner_server", "behavior_server",
                                        "bt_navigator", "waypoint_follower",
@@ -161,7 +146,7 @@ def generate_launch_description():
     frontier_params = {
         "use_sim_time": False,
         "robot_base_frame": "base_link",
-        "autostart": True,
+        "autostart": True, "bond_timeout": 30.0,
         "mrtsp_solver": "greedy",
         "escape_enabled": True,
         "frontier_selection_min_distance": 0.6,
@@ -184,10 +169,10 @@ def generate_launch_description():
         SetEnvironmentVariable("GZ_SIM_RESOURCE_PATH", models_path),
 
         # Phase 0 (t=0)
-        gz_sim, rsp, jsp, bridge, clock_bridge, joint_bridge, joint_ctrl, odom_bridge, lidar_tf, scan_filter, spawn_robot,
+        gz_sim, rsp, jsp, bridge, clock_bridge, joint_bridge, joint_ctrl, odom_bridge, lidar_tf, scan_filter,
 
         # Phase 1 (t=25-30s)
-        slam_node, slam_lifecycle, rviz,
+        slam_node, slam_lifecycle,
 
         # Phase 2 (t=35s)
         nav2_nodes,
