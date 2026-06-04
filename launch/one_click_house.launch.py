@@ -40,7 +40,7 @@ def generate_launch_description():
 
     # Bridge: LiDAR scan + cmd_vel
     bridge = Node(package="ros_gz_bridge", executable="parameter_bridge",
-                  arguments=["/scan@sensor_msgs/msg/LaserScan[gz.msgs.LaserScan"],
+                  arguments=["/scan_raw@sensor_msgs/msg/LaserScan[gz.msgs.LaserScan"],
                   parameters=[sim_time], output="screen")
 
     # Custom clock bridge: gz sim time -> ROS /clock (fixes ros_gz_bridge wall-time bug)
@@ -68,6 +68,11 @@ def generate_launch_description():
     lidar_tf = Node(package="tf2_ros", executable="static_transform_publisher",
                     arguments=["0", "0", "0.20", "3.141593", "-1.570796", "0", "base_link",
                                "service_robot_cart/base_link/front_lidar"])
+
+    # Scan body filter: mask body_link angles from /scan_raw to /scan
+    scan_filter = Node(package="service_robot_cart_description",
+                       executable="scan_body_filter.py",
+                       output="screen")
 
     # ===== Phase 1: SLAM (t=25s) =====
     # Inline params (YAML file loading is unreliable in ROS2)
@@ -164,7 +169,7 @@ def generate_launch_description():
         SetEnvironmentVariable("GZ_SIM_RESOURCE_PATH", models_path),
 
         # Phase 0 (t=0)
-        gz_sim, rsp, jsp, bridge, clock_bridge, joint_bridge, joint_ctrl, odom_bridge, lidar_tf,
+        gz_sim, rsp, jsp, bridge, clock_bridge, joint_bridge, joint_ctrl, odom_bridge, lidar_tf, scan_filter,
 
         # Phase 1 (t=25-30s)
         slam_node, slam_lifecycle,
