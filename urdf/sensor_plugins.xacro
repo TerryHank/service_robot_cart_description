@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <robot name="sensor_plugins" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-<!-- GPU LiDAR on front_sensor_link -->
+<!-- GPU LiDAR on front_sensor_link. Internal pose counter-rotates scan to horizontal -->
   <gazebo reference="front_sensor_link">
     <sensor name="front_lidar" type="gpu_lidar">
       <pose>0 0 0 0 1.570796 0</pose>
