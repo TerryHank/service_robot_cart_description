@@ -952,7 +952,7 @@
         </geometry>
       </collision>
       <collision name='base_link_fixed_joint_lump__front_sensor_link_collision_collision_11'>
-        <pose>0.0 0 0.20 0 -1.570796 3.141593</pose>
+        <pose>0.30249999999999999 0 0.11 0 1.5707963267948966 0</pose>
         <geometry>
           <cylinder>
             <length>0.017500000000000002</length>
@@ -1654,7 +1654,7 @@
         </material>
       </visual>
       <visual name='base_link_fixed_joint_lump__front_sensor_link_silver_ring_visual_55'>
-        <pose>0.0 0 0.20 0 -1.570796 3.141593</pose>
+        <pose>0.30249999999999999 0 0.11 0 1.5707963267948966 0</pose>
         <geometry>
           <cylinder>
             <length>0.012500000000000001</length>
@@ -1735,7 +1735,7 @@
             <stddev>0.01</stddev>
           </noise>
         </lidar>
-        <pose>0.0 0 0.20 0 -1.570796 3.141593</pose>
+        <pose>0.30249999999999999 0 0.11 0 0 0</pose>
       </sensor>
       <sensor name='front_camera' type='camera'>
         <always_on>true</always_on>
@@ -1752,7 +1752,7 @@
             <far>100</far>
           </clip>
         </camera>
-        <pose>0.0 0 0.20 0 -1.570796 3.141593</pose>
+        <pose>0.30249999999999999 0 0.11 0 0 0</pose>
       </sensor>
     </link>
     <joint name='front_left_wheel_joint' type='revolute'>
