@@ -4,7 +4,6 @@
 <!-- GPU LiDAR on front_sensor_link. Internal pose counter-rotates scan to horizontal -->
   <gazebo reference="front_sensor_link">
     <sensor name="front_lidar" type="gpu_lidar">
-      <pose>0 0 0 0 1.570796 0</pose>
       <always_on>true</always_on>
       <update_rate>10</update_rate>
       <topic>scan</topic>
