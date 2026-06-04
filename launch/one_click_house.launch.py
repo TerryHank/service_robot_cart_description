@@ -40,7 +40,7 @@ def generate_launch_description():
 
     # Bridge: LiDAR scan + cmd_vel
     bridge = Node(package="ros_gz_bridge", executable="parameter_bridge",
-                  arguments=["/scan_raw@sensor_msgs/msg/LaserScan@scan[gz.msgs.LaserScan"],
+                  arguments=["/scan@sensor_msgs/msg/LaserScan[gz.msgs.LaserScan"],
                   parameters=[sim_time], output="screen")
 
     # Custom clock bridge: gz sim time -> ROS /clock (fixes ros_gz_bridge wall-time bug)
@@ -74,6 +74,14 @@ def generate_launch_description():
                        executable="scan_body_filter.py",
                        output="screen")
 
+    # Spawn robot from URDF/xacro (t=5s, after Gazebo ready)
+    spawn_robot = TimerAction(period=5.0, actions=[
+        Node(package="ros_gz_sim", executable="create",
+             arguments=["-name", "service_robot_cart", "-topic", "robot_description",
+                        "-x", "0.0", "-y", "0.0", "-z", "0.05"],
+             output="screen")
+    ])
+
     # ===== Phase 1: SLAM (t=25s) =====
     # Inline params (YAML file loading is unreliable in ROS2)
     slam_params = {
@@ -94,7 +102,7 @@ def generate_launch_description():
         "stack_size_to_use": 40000000,
         "use_scan_matching": True,
         "use_scan_barycenter": True,
-        "scan_topic": "/scan",
+        "scan_topic": "/scan_filtered",
         "odom_frame": "odom",
         "base_frame": "base_link",
         "map_frame": "map",
@@ -169,7 +177,7 @@ def generate_launch_description():
         SetEnvironmentVariable("GZ_SIM_RESOURCE_PATH", models_path),
 
         # Phase 0 (t=0)
-        gz_sim, rsp, jsp, bridge, clock_bridge, joint_bridge, joint_ctrl, odom_bridge, lidar_tf, scan_filter,
+        gz_sim, rsp, jsp, bridge, clock_bridge, joint_bridge, joint_ctrl, odom_bridge, lidar_tf, scan_filter, spawn_robot,
 
         # Phase 1 (t=25-30s)
         slam_node, slam_lifecycle,

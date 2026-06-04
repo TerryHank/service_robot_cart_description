@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <robot name="sensor_plugins" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-<!-- Native Gazebo LiDAR on front_sensor_link -->
+<!-- GPU LiDAR on front_sensor_link -->
   <gazebo reference="front_sensor_link">
     <sensor name="front_lidar" type="gpu_lidar">
       <always_on>true</always_on>
@@ -36,16 +36,8 @@
     </sensor>
   </gazebo>
 
-  <!-- Front camera optical frame (ROS convention: Z forward, X right, Y down) -->
-  <link name="front_camera_optical_frame"/>
-  <joint name="front_camera_optical_joint" type="fixed">
-    <parent link="front_sensor_link"/>
-    <child link="front_camera_optical_frame"/>
-    <origin xyz="0 0 0" rpy="-1.570796 0 -1.570796"/>
-  </joint>
-
-  <!-- Front camera sensor on front_sensor_link -->
-  <gazebo reference="front_sensor_link">
+  <!-- Camera sensor on rear_camera_link -->
+  <gazebo reference="rear_camera_link">
     <sensor name="front_camera" type="camera">
       <always_on>true</always_on>
       <update_rate>30</update_rate>
