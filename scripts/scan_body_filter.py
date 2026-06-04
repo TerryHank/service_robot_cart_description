@@ -29,7 +29,7 @@ class ScanBodyFilter(Node):
         filtered.intensities = list(msg.intensities) if msg.intensities else []
         for i in range(len(msg.ranges)):
             angle = msg.angle_min + i * msg.angle_increment
-            if abs(angle) < half:
+            if abs(angle - math.pi) < half:
                 filtered.ranges[i] = float('inf')
         self.pub.publish(filtered)
 
