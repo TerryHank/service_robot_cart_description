@@ -9,13 +9,11 @@ from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
 from launch_ros.parameter_descriptions import ParameterValue
 
-
 def _get_wsl_ip():
     try:
         return subprocess.check_output(["hostname", "-I"]).decode().strip().split()[0]
     except Exception:
         return "127.0.0.1"
-
 
 def generate_launch_description():
     pkg_share = FindPackageShare("service_robot_cart_description")
@@ -102,17 +100,18 @@ def generate_launch_description():
         "scan_queue_size": 10,
     }
 
-    slam_node = TimerAction(period=25.0, actions=[
+        # Lifecycle manager for SLAM (no bond, just autostart)
+    slam_lifecycle = TimerAction(period=27.0, actions=[
+        Node(package="nav2_lifecycle_manager", executable="lifecycle_manager",
+             name="lifecycle_manager_slam", output="screen",
+             parameters=[sim_time, {"autostart": True, "bond_timeout": 0.0,
+                        "node_names": ["slam_toolbox"]}])])
+
+slam_node = TimerAction(period=25.0, actions=[
         Node(package="slam_toolbox", executable="async_slam_toolbox_node",
              name="slam_toolbox", output="screen",
              parameters=[slam_params])])
 
-    # Lifecycle manager for SLAM auto-activation
-    slam_lifecycle = TimerAction(period=30.0, actions=[
-        Node(package="nav2_lifecycle_manager", executable="lifecycle_manager",
-             name="lifecycle_manager_slam", output="screen",
-             parameters=[{"use_sim_time": False, "autostart": True, "bond_timeout": 30.0,
-                          "node_names": ["slam_toolbox"]}])])
 
     # ===== Phase 2: Nav2 stack (t=35s) =====
     nav2_nodes = TimerAction(period=35.0, actions=[
