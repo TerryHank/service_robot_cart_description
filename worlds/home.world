@@ -831,7 +831,6 @@
     </light>
 
     <model name='service_robot_cart'>
-      <pose>0.0 0.0 0.05 0 0 0</pose>
     <link name='base_link'>
       <inertial>
         <pose>-0.061481330561952333 0 0.3113123560726142 0 0 0</pose>
@@ -1712,10 +1711,10 @@
         <lidar>
           <scan>
             <horizontal>
-              <samples>360</samples>
+              <samples>180</samples>
               <resolution>1</resolution>
-              <min_angle>-3.1415899999999999</min_angle>
-              <max_angle>3.1415899999999999</max_angle>
+              <min_angle>-1.570796</min_angle>
+              <max_angle>1.570796</max_angle>
             </horizontal>
             <vertical>
               <samples>1</samples>
@@ -1725,7 +1724,7 @@
             </vertical>
           </scan>
           <range>
-            <min>0.10000000000000001</min>
+            <min>0.1</min>
             <max>10</max>
             <resolution>0.01</resolution>
           </range>
@@ -1735,7 +1734,7 @@
             <stddev>0.01</stddev>
           </noise>
         </lidar>
-        <pose>0.30249999999999999 0 0.11 0 0 0</pose>
+        <pose>0.0 0 0.20 0 -1.570796 3.141593</pose>
       </sensor>
       <sensor name='front_camera' type='camera'>
         <always_on>true</always_on>
@@ -1752,11 +1751,11 @@
             <far>100</far>
           </clip>
         </camera>
-        <pose>0.30249999999999999 0 0.11 0 0 0</pose>
+        <pose>-0.2675 0 0.55 0 0 0</pose>
       </sensor>
     </link>
     <joint name='front_left_wheel_joint' type='revolute'>
-      <pose relative_to='base_link'>0.215 0.20499999999999999 0.080000000000000002 0 0 0</pose>
+      <pose>0.215 0.20499999999999999 0.080000000000000002 0 0 0</pose>
       <parent>base_link</parent>
       <child>front_left_wheel_link</child>
       <axis>
@@ -1849,7 +1848,7 @@
       </visual>
     </link>
     <joint name='front_right_wheel_joint' type='revolute'>
-      <pose relative_to='base_link'>0.215 -0.20499999999999999 0.080000000000000002 0 0 0</pose>
+      <pose>0.215 -0.20499999999999999 0.080000000000000002 0 0 0</pose>
       <parent>base_link</parent>
       <child>front_right_wheel_link</child>
       <axis>
@@ -1942,7 +1941,7 @@
       </visual>
     </link>
     <joint name='rear_left_wheel_joint' type='revolute'>
-      <pose relative_to='base_link'>-0.245 0.20499999999999999 0.080000000000000002 0 0 0</pose>
+      <pose>-0.245 0.20499999999999999 0.080000000000000002 0 0 0</pose>
       <parent>base_link</parent>
       <child>rear_left_wheel_link</child>
       <axis>
@@ -2035,7 +2034,7 @@
       </visual>
     </link>
     <joint name='rear_right_wheel_joint' type='revolute'>
-      <pose relative_to='base_link'>-0.245 -0.20499999999999999 0.080000000000000002 0 0 0</pose>
+      <pose>-0.245 -0.20499999999999999 0.080000000000000002 0 0 0</pose>
       <parent>base_link</parent>
       <child>rear_right_wheel_link</child>
       <axis>
@@ -2137,19 +2136,6 @@
       <odom_frame_id>odom</odom_frame_id>
       <child_frame_id>base_link</child_frame_id>
     </plugin>
-    <plugin filename="gz-sim-joint-controller-system" name="gz::sim::systems::JointController">
-      <joint_name>front_left_wheel_joint</joint_name>
-    </plugin>
-    <plugin filename="gz-sim-joint-controller-system" name="gz::sim::systems::JointController">
-      <joint_name>front_right_wheel_joint</joint_name>
-    </plugin>
-    <plugin filename="gz-sim-joint-controller-system" name="gz::sim::systems::JointController">
-      <joint_name>rear_left_wheel_joint</joint_name>
-    </plugin>
-    <plugin filename="gz-sim-joint-controller-system" name="gz::sim::systems::JointController">
-      <joint_name>rear_right_wheel_joint</joint_name>
-    </plugin>
-
     <frame name='left_side_camera_optical_frame_joint' attached_to='left_side_camera_link'>
       <pose>0 0 0 -1.5707959999999999 0 -1.5707959999999999</pose>
     </frame>
@@ -2199,7 +2185,7 @@
       <pose>0 0 0 0 0 0</pose>
     </frame>
     <frame name='tray_1_joint' attached_to='body_link'>
-      <pose>0.29499999999999998 0 -0.27500000000000002 0 0 0</pose>
+      <pose>0.29499999999999998 0 -0.245 0 0 0</pose>
     </frame>
     <frame name='tray_1_link' attached_to='tray_1_joint'>
       <pose>0 0 0 0 0 0</pose>
@@ -2211,7 +2197,7 @@
       <pose>0 0 0 0 0 0</pose>
     </frame>
     <frame name='tray_2_joint' attached_to='body_link'>
-      <pose>0.29499999999999998 0 -0.125 0 0 0</pose>
+      <pose>0.29499999999999998 0 -0.095 0 0 0</pose>
     </frame>
     <frame name='tray_2_link' attached_to='tray_2_joint'>
       <pose>0 0 0 0 0 0</pose>
@@ -2223,7 +2209,7 @@
       <pose>0 0 0 0 0 0</pose>
     </frame>
     <frame name='tray_3_joint' attached_to='body_link'>
-      <pose>0.29499999999999998 0 0.025000000000000001 0 0 0</pose>
+      <pose>0.29499999999999998 0 0.055 0 0 0</pose>
     </frame>
     <frame name='tray_3_link' attached_to='tray_3_joint'>
       <pose>0 0 0 0 0 0</pose>
@@ -2235,7 +2221,7 @@
       <pose>0 0 0 0 0 0</pose>
     </frame>
     <frame name='tray_4_joint' attached_to='body_link'>
-      <pose>0.29499999999999998 0 0.17499999999999999 0 0 0</pose>
+      <pose>0.29499999999999998 0 0.205 0 0 0</pose>
     </frame>
     <frame name='tray_4_link' attached_to='tray_4_joint'>
       <pose>0 0 0 0 0 0</pose>
@@ -2247,13 +2233,13 @@
       <pose>0 0 0 0 0 0</pose>
     </frame>
     <frame name='front_camera_optical_joint' attached_to='front_sensor_link'>
-      <pose>0 0 0 -1.5707959999999999 0 -1.5707959999999999</pose>
+      <pose>0 0 0 -1.570796 0 -1.570796</pose>
     </frame>
     <frame name='front_camera_optical_frame' attached_to='front_camera_optical_joint'>
       <pose>0 0 0 0 0 0</pose>
     </frame>
     <frame name='front_sensor_link_joint' attached_to='base_link'>
-      <pose>0.30249999999999999 0 0.11 0 0 0</pose>
+      <pose>0.0 0 0.15 0 0 0</pose>
     </frame>
     <frame name='front_sensor_link' attached_to='front_sensor_link_joint'>
       <pose>0 0 0 0 0 0</pose>
@@ -2264,6 +2250,18 @@
     <frame name='rear_sensor_link' attached_to='rear_sensor_link_joint'>
       <pose>0 0 0 0 0 0</pose>
     </frame>
-  </model>
+      <plugin filename="gz-sim-joint-controller-system" name="gz::sim::systems::JointController">
+      <joint_name>front_left_wheel_joint</joint_name>
+    </plugin>
+    <plugin filename="gz-sim-joint-controller-system" name="gz::sim::systems::JointController">
+      <joint_name>front_right_wheel_joint</joint_name>
+    </plugin>
+    <plugin filename="gz-sim-joint-controller-system" name="gz::sim::systems::JointController">
+      <joint_name>rear_left_wheel_joint</joint_name>
+    </plugin>
+    <plugin filename="gz-sim-joint-controller-system" name="gz::sim::systems::JointController">
+      <joint_name>rear_right_wheel_joint</joint_name>
+    </plugin>
+</model>
   </world>
 </sdf>

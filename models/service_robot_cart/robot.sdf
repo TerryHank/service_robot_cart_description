@@ -1402,6 +1402,8 @@
       <pose>0 0 0 0 0 0</pose>
     </frame>
     <frame name='front_camera_optical_joint' attached_to='front_sensor_link'>
+      <pose>0 0 0 -1.570796 0 -1.570796</pose>
+    </frame>
     <frame name='front_camera_optical_frame' attached_to='front_camera_optical_joint'>
       <pose>0 0 0 0 0 0</pose>
     </frame>
