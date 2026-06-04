@@ -920,7 +920,7 @@
             <far>100</far>
           </clip>
         </camera>
-        <pose>0.0 0 0.15 0 0 0</pose>
+        <pose>-0.2675 0 0.55 0 0 0</pose>
       </sensor>
     </link>
     <joint name='front_left_wheel_joint' type='revolute'>
@@ -1402,8 +1402,6 @@
       <pose>0 0 0 0 0 0</pose>
     </frame>
     <frame name='front_camera_optical_joint' attached_to='front_sensor_link'>
-      <pose>0 0 0 -1.5707959999999999 0 -1.5707959999999999</pose>
-    </frame>
     <frame name='front_camera_optical_frame' attached_to='front_camera_optical_joint'>
       <pose>0 0 0 0 0 0</pose>
     </frame>
