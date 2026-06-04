@@ -880,10 +880,10 @@
         <lidar>
           <scan>
             <horizontal>
-              <samples>360</samples>
+              <samples>180</samples>
               <resolution>1</resolution>
-              <min_angle>-3.1415899999999999</min_angle>
-              <max_angle>3.1415899999999999</max_angle>
+              <min_angle>-1.570796</min_angle>
+              <max_angle>1.570796</max_angle>
             </horizontal>
             <vertical>
               <samples>1</samples>
@@ -903,7 +903,7 @@
             <stddev>0.01</stddev>
           </noise>
         </lidar>
-        <pose>0.0 0 0.20 0 1.570796 3.141593</pose>
+        <pose>0.0 0 0.20 0 -1.570796 3.141593</pose>
       </sensor>
       <sensor name='front_camera' type='camera'>
         <always_on>true</always_on>

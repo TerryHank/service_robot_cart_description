@@ -571,14 +571,14 @@
       <material name="black"/>
     </visual>
     <visual name="rear_camera_silver_ring">
-      <origin xyz="0.0125 0.0 0.0225" rpy="0 1.570796 3.141593"/>
+      <origin xyz="0.0125 0.0 0.0225" rpy="0 -1.570796 3.141593"/>
       <geometry>
         <cylinder radius="0.035" length="0.02"/>
       </geometry>
       <material name="silver"/>
     </visual>
     <visual name="rear_camera_glass_lens">
-      <origin xyz="0.025 0.0 0.0225" rpy="0 1.570796 3.141593"/>
+      <origin xyz="0.025 0.0 0.0225" rpy="0 -1.570796 3.141593"/>
       <geometry>
         <cylinder radius="0.0225" length="0.022"/>
       </geometry>
@@ -616,28 +616,28 @@
       <inertia ixx="1.65e-05" ixy="0.0" ixz="0.0" iyy="1.022e-05" iyz="0.0" izz="1.022e-05"/>
     </inertial>
     <visual name="left_side_camera_housing">
-      <origin xyz="0.0 0.0 0.0" rpy="0 1.570796 3.141593"/>
+      <origin xyz="0.0 0.0 0.0" rpy="0 -1.570796 3.141593"/>
       <geometry>
         <cylinder radius="0.0325" length="0.0275"/>
       </geometry>
       <material name="silver"/>
     </visual>
     <visual name="left_side_camera_lens">
-      <origin xyz="0.013 0.0 0.0" rpy="0 1.570796 3.141593"/>
+      <origin xyz="0.013 0.0 0.0" rpy="0 -1.570796 3.141593"/>
       <geometry>
         <cylinder radius="0.02" length="0.03"/>
       </geometry>
       <material name="glass"/>
     </visual>
     <visual name="left_side_camera_black_ring">
-      <origin xyz="0.01 0.0 0.0" rpy="0 1.570796 3.141593"/>
+      <origin xyz="0.01 0.0 0.0" rpy="0 -1.570796 3.141593"/>
       <geometry>
         <cylinder radius="0.0235" length="0.032"/>
       </geometry>
       <material name="black"/>
     </visual>
     <collision name="left_side_camera_link_collision">
-      <origin xyz="0.0 0.0 0.0" rpy="0 1.570796 3.141593"/>
+      <origin xyz="0.0 0.0 0.0" rpy="0 -1.570796 3.141593"/>
       <geometry>
         <cylinder radius="0.035" length="0.035"/>
       </geometry>
@@ -654,28 +654,28 @@
       <inertia ixx="1.65e-05" ixy="0.0" ixz="0.0" iyy="1.022e-05" iyz="0.0" izz="1.022e-05"/>
     </inertial>
     <visual name="right_side_camera_housing">
-      <origin xyz="0.0 0.0 0.0" rpy="0 1.570796 3.141593"/>
+      <origin xyz="0.0 0.0 0.0" rpy="0 -1.570796 3.141593"/>
       <geometry>
         <cylinder radius="0.0325" length="0.0275"/>
       </geometry>
       <material name="silver"/>
     </visual>
     <visual name="right_side_camera_lens">
-      <origin xyz="0.013 0.0 0.0" rpy="0 1.570796 3.141593"/>
+      <origin xyz="0.013 0.0 0.0" rpy="0 -1.570796 3.141593"/>
       <geometry>
         <cylinder radius="0.02" length="0.03"/>
       </geometry>
       <material name="glass"/>
     </visual>
     <visual name="right_side_camera_black_ring">
-      <origin xyz="0.01 0.0 0.0" rpy="0 1.570796 3.141593"/>
+      <origin xyz="0.01 0.0 0.0" rpy="0 -1.570796 3.141593"/>
       <geometry>
         <cylinder radius="0.0235" length="0.032"/>
       </geometry>
       <material name="black"/>
     </visual>
     <collision name="right_side_camera_link_collision">
-      <origin xyz="0.0 0.0 0.0" rpy="0 1.570796 3.141593"/>
+      <origin xyz="0.0 0.0 0.0" rpy="0 -1.570796 3.141593"/>
       <geometry>
         <cylinder radius="0.035" length="0.035"/>
       </geometry>
@@ -734,21 +734,21 @@
       <inertia ixx="2.5e-06" ixy="0.0" ixz="0.0" iyy="1.41e-06" iyz="0.0" izz="1.41e-06"/>
     </inertial>
     <visual name="front_sensor_link_silver_ring">
-      <origin xyz="0.0 0.0 0.0" rpy="0 1.570796 3.141593"/>
+      <origin xyz="0.0 0.0 0.0" rpy="0 -1.570796 3.141593"/>
       <geometry>
         <cylinder radius="0.02" length="0.0125"/>
       </geometry>
       <material name="silver"/>
     </visual>
     <visual name="front_sensor_link_glass">
-      <origin xyz="0.006 0.0 0.0" rpy="0 1.570796 3.141593"/>
+      <origin xyz="0.006 0.0 0.0" rpy="0 -1.570796 3.141593"/>
       <geometry>
         <cylinder radius="0.013" length="0.015"/>
       </geometry>
       <material name="glass"/>
     </visual>
     <collision name="front_sensor_link_collision">
-      <origin xyz="0.0 0.0 0.0" rpy="0 1.570796 3.141593"/>
+      <origin xyz="0.0 0.0 0.0" rpy="0 -1.570796 3.141593"/>
       <geometry>
         <cylinder radius="0.0225" length="0.0175"/>
       </geometry>
@@ -762,21 +762,21 @@
       <inertia ixx="2.5e-06" ixy="0.0" ixz="0.0" iyy="1.41e-06" iyz="0.0" izz="1.41e-06"/>
     </inertial>
     <visual name="rear_sensor_link_silver_ring">
-      <origin xyz="0.0 0.0 0.0" rpy="0 1.570796 3.141593"/>
+      <origin xyz="0.0 0.0 0.0" rpy="0 -1.570796 3.141593"/>
       <geometry>
         <cylinder radius="0.02" length="0.0125"/>
       </geometry>
       <material name="silver"/>
     </visual>
     <visual name="rear_sensor_link_glass">
-      <origin xyz="0.006 0.0 0.0" rpy="0 1.570796 3.141593"/>
+      <origin xyz="0.006 0.0 0.0" rpy="0 -1.570796 3.141593"/>
       <geometry>
         <cylinder radius="0.013" length="0.015"/>
       </geometry>
       <material name="glass"/>
     </visual>
     <collision name="rear_sensor_link_collision">
-      <origin xyz="0.0 0.0 0.0" rpy="0 1.570796 3.141593"/>
+      <origin xyz="0.0 0.0 0.0" rpy="0 -1.570796 3.141593"/>
       <geometry>
         <cylinder radius="0.0225" length="0.0175"/>
       </geometry>
@@ -915,7 +915,7 @@
   <joint name="front_sensor_link_joint" type="fixed">
     <parent link="base_link"/>
     <child link="front_sensor_link"/>
-    <origin xyz="0.0 0.0 0.20" rpy="0 1.570796 3.141593"/>
+    <origin xyz="0.0 0.0 0.20" rpy="0 -1.570796 3.141593"/>
   </joint>
 
   <joint name="rear_sensor_link_joint" type="fixed">
