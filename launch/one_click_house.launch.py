@@ -40,7 +40,7 @@ def generate_launch_description():
 
     # Bridge: LiDAR scan + cmd_vel
     bridge = Node(package="ros_gz_bridge", executable="parameter_bridge",
-                  arguments=["/scan_raw@sensor_msgs/msg/LaserScan[gz.msgs.LaserScan"],
+                  arguments=["/scan_raw@sensor_msgs/msg/LaserScan@scan[gz.msgs.LaserScan"],
                   parameters=[sim_time], output="screen")
 
     # Custom clock bridge: gz sim time -> ROS /clock (fixes ros_gz_bridge wall-time bug)
