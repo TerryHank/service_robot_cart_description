@@ -116,6 +116,13 @@ def generate_launch_description():
              parameters=[slam_params])])
 
     # Lifecycle manager for SLAM auto-activation
+    # RViz2 with pre-configured displays (t=30s)
+    rviz = TimerAction(period=30.0, actions=[
+        Node(package="rviz2", executable="rviz2",
+             arguments=["-d", pkg_path + "/rviz/service_robot_cart.rviz"],
+             output="screen")
+    ])
+
     slam_lifecycle = TimerAction(period=30.0, actions=[
         Node(package="nav2_lifecycle_manager", executable="lifecycle_manager",
              name="lifecycle_manager_slam", output="screen",
@@ -180,7 +187,7 @@ def generate_launch_description():
         gz_sim, rsp, jsp, bridge, clock_bridge, joint_bridge, joint_ctrl, odom_bridge, lidar_tf, scan_filter, spawn_robot,
 
         # Phase 1 (t=25-30s)
-        slam_node, slam_lifecycle,
+        slam_node, slam_lifecycle, rviz,
 
         # Phase 2 (t=35s)
         nav2_nodes,
