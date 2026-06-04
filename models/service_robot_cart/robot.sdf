@@ -893,7 +893,7 @@
             </vertical>
           </scan>
           <range>
-            <min>0.10000000000000001</min>
+            <min>0.35</min>
             <max>10</max>
             <resolution>0.01</resolution>
           </range>
