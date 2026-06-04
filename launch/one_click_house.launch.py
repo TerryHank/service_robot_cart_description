@@ -66,7 +66,7 @@ def generate_launch_description():
 
     # LiDAR TF: base_link -> Gazebo-scoped lidar frame
     lidar_tf = Node(package="tf2_ros", executable="static_transform_publisher",
-                    arguments=["0", "0", "0.20", "3.141593", "0", "0", "base_link",
+                    arguments=["0", "0", "0.20", "3.141593", "-1.570796", "0", "base_link",
                                "service_robot_cart/base_link/front_lidar"])
 
     # Scan body filter: mask body_link angles from /scan_raw to /scan
