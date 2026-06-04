@@ -8,7 +8,7 @@ import math
 class ScanBodyFilter(Node):
     def __init__(self):
         super().__init__('scan_body_filter')
-        self.declare_parameter('mask_half_width_deg', 12.0)
+        self.declare_parameter('mask_half_width_deg', 55.0)
         self.sub = self.create_subscription(LaserScan, '/scan', self.cb, 10)
         self.pub = self.create_publisher(LaserScan, '/scan_filtered', 10)
         self.get_logger().info('Body filter: /scan -> /scan_filtered (center +-12deg masked)')
