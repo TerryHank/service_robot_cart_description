@@ -74,6 +74,14 @@ def generate_launch_description():
                        executable="scan_body_filter.py",
                        output="screen", parameters=[sim_time])
 
+    # Spawn robot from URDF into empty world (t=10s)
+    spawn_robot = TimerAction(period=10.0, actions=[
+        Node(package="ros_gz_sim", executable="create",
+             arguments=["-name", "service_robot_cart", "-topic", "robot_description",
+                        "-x", "0.0", "-y", "0.0", "-z", "0.05"],
+             output="screen")
+    ])
+
     # ===== Phase 1: SLAM (t=25s) =====
     # Inline params (YAML file loading is unreliable in ROS2)
     slam_params = {
@@ -169,7 +177,7 @@ def generate_launch_description():
         SetEnvironmentVariable("GZ_SIM_RESOURCE_PATH", models_path),
 
         # Phase 0 (t=0)
-        gz_sim, rsp, jsp, bridge, clock_bridge, joint_bridge, joint_ctrl, odom_bridge, lidar_tf, scan_filter,
+        gz_sim, rsp, jsp, bridge, clock_bridge, joint_bridge, joint_ctrl, odom_bridge, lidar_tf, scan_filter, spawn_robot,
 
         # Phase 1 (t=25-30s)
         slam_node, slam_lifecycle,
