@@ -26,7 +26,7 @@ def generate_launch_description():
     xacro_file = PathJoinSubstitution([pkg_share, "urdf", "service_robot_cart_gazebo.urdf.xacro"])
     robot_description = {"robot_description": ParameterValue(Command(["xacro ", xacro_file]), value_type=str)}
     world_file = PathJoinSubstitution([pkg_share, "worlds", "home.world"])
-    sim_time = {"use_sim_time": False}
+    sim_time = {"use_sim_time": True}
 
     # ===== Phase 0: Core infra (t=0) =====
     gz_sim = ExecuteProcess(cmd=["gz", "sim", "-r", "-v", "1", world_file], output="screen")
@@ -36,7 +36,7 @@ def generate_launch_description():
     # Joint state publisher: publishes default joint states so RSP can
     # compute transforms for continuous joints (wheel links -> base_link)
     jsp = Node(package="joint_state_publisher", executable="joint_state_publisher",
-               output="screen", parameters=[{"use_sim_time": False}])
+               output="screen", parameters=[{"use_sim_time": True}])
 
     # Bridge: LiDAR scan + cmd_vel
     bridge = Node(package="ros_gz_bridge", executable="parameter_bridge",
@@ -74,18 +74,10 @@ def generate_launch_description():
                        executable="scan_body_filter.py",
                        output="screen", parameters=[sim_time])
 
-    # Spawn robot from URDF/xacro (t=5s, after Gazebo ready)
-    spawn_robot = TimerAction(period=5.0, actions=[
-        Node(package="ros_gz_sim", executable="create",
-             arguments=["-name", "service_robot_cart", "-topic", "robot_description",
-                        "-x", "0.0", "-y", "0.0", "-z", "0.05"],
-             output="screen")
-    ])
-
     # ===== Phase 1: SLAM (t=25s) =====
     # Inline params (YAML file loading is unreliable in ROS2)
     slam_params = {
-        "use_sim_time": False,
+        "use_sim_time": True,
         "solver_plugin": "solver_plugins::CeresSolver",
         "ceres_loss_function": "HuberLoss",
         "max_iterations": 5,
@@ -119,7 +111,7 @@ def generate_launch_description():
     slam_lifecycle = TimerAction(period=30.0, actions=[
         Node(package="nav2_lifecycle_manager", executable="lifecycle_manager",
              name="lifecycle_manager_slam", output="screen",
-             parameters=[{"use_sim_time": False, "autostart": True, "bond_timeout": 0.0,
+             parameters=[{"use_sim_time": True, "autostart": True, "bond_timeout": 0.0,
                           "node_names": ["slam_toolbox"]}])])
 
     # ===== Phase 2: Nav2 stack (t=35s) =====
@@ -152,7 +144,7 @@ def generate_launch_description():
 
     # ===== Phase 3: Frontier exploration (t=50s) =====
     frontier_params = {
-        "use_sim_time": False,
+        "use_sim_time": True,
         "robot_base_frame": "base_link",
         "autostart": True,
         "mrtsp_solver": "greedy",
@@ -177,7 +169,7 @@ def generate_launch_description():
         SetEnvironmentVariable("GZ_SIM_RESOURCE_PATH", models_path),
 
         # Phase 0 (t=0)
-        gz_sim, rsp, jsp, bridge, clock_bridge, joint_bridge, joint_ctrl, odom_bridge, lidar_tf, scan_filter, spawn_robot,
+        gz_sim, rsp, jsp, bridge, clock_bridge, joint_bridge, joint_ctrl, odom_bridge, lidar_tf, scan_filter,
 
         # Phase 1 (t=25-30s)
         slam_node, slam_lifecycle,
