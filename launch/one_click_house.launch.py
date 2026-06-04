@@ -9,11 +9,13 @@ from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
 from launch_ros.parameter_descriptions import ParameterValue
 
+
 def _get_wsl_ip():
     try:
         return subprocess.check_output(["hostname", "-I"]).decode().strip().split()[0]
     except Exception:
         return "127.0.0.1"
+
 
 def generate_launch_description():
     pkg_share = FindPackageShare("service_robot_cart_description")
@@ -64,13 +66,21 @@ def generate_launch_description():
 
     # LiDAR TF: base_link -> Gazebo-scoped lidar frame
     lidar_tf = Node(package="tf2_ros", executable="static_transform_publisher",
-                    arguments=["0", "0", "0.20", "3.141593", "0", "0", "base_link",
+                    arguments=["0", "0", "0.20", "3.141593", "-1.570796", "0", "base_link",
                                "service_robot_cart/base_link/front_lidar"])
 
     # Scan body filter: mask body_link angles from /scan_raw to /scan
     scan_filter = Node(package="service_robot_cart_description",
                        executable="scan_body_filter.py",
                        output="screen", parameters=[sim_time])
+
+    # Spawn robot from URDF/xacro (t=5s, after Gazebo ready)
+    spawn_robot = TimerAction(period=5.0, actions=[
+        Node(package="ros_gz_sim", executable="create",
+             arguments=["-name", "service_robot_cart", "-topic", "robot_description",
+                        "-x", "0.0", "-y", "0.0", "-z", "0.05"],
+             output="screen")
+    ])
 
     # ===== Phase 1: SLAM (t=25s) =====
     # Inline params (YAML file loading is unreliable in ROS2)
@@ -100,18 +110,17 @@ def generate_launch_description():
         "scan_queue_size": 10,
     }
 
-        # Lifecycle manager for SLAM (no bond, just autostart)
-    slam_lifecycle = TimerAction(period=27.0, actions=[
-        Node(package="nav2_lifecycle_manager", executable="lifecycle_manager",
-             name="lifecycle_manager_slam", output="screen",
-             parameters=[sim_time, {"autostart": True, "bond_timeout": 0.0,
-                        "node_names": ["slam_toolbox"]}])])
-
-slam_node = TimerAction(period=25.0, actions=[
+    slam_node = TimerAction(period=25.0, actions=[
         Node(package="slam_toolbox", executable="async_slam_toolbox_node",
              name="slam_toolbox", output="screen",
              parameters=[slam_params])])
 
+    # Lifecycle manager for SLAM auto-activation
+    slam_lifecycle = TimerAction(period=30.0, actions=[
+        Node(package="nav2_lifecycle_manager", executable="lifecycle_manager",
+             name="lifecycle_manager_slam", output="screen",
+             parameters=[{"use_sim_time": False, "autostart": True, "bond_timeout": 0.0,
+                          "node_names": ["slam_toolbox"]}])])
 
     # ===== Phase 2: Nav2 stack (t=35s) =====
     nav2_nodes = TimerAction(period=35.0, actions=[
@@ -135,7 +144,7 @@ slam_node = TimerAction(period=25.0, actions=[
                          ("cmd_vel_smoothed", "/cmd_vel")]),
         Node(package="nav2_lifecycle_manager", executable="lifecycle_manager",
              name="lifecycle_manager_navigation", output="screen",
-             parameters=[sim_time, {"autostart": True, "bond_timeout": 30.0,
+             parameters=[sim_time, {"autostart": True,
                         "node_names": ["controller_server", "smoother_server",
                                        "planner_server", "behavior_server",
                                        "bt_navigator", "waypoint_follower",
@@ -145,7 +154,7 @@ slam_node = TimerAction(period=25.0, actions=[
     frontier_params = {
         "use_sim_time": False,
         "robot_base_frame": "base_link",
-        "autostart": True, "bond_timeout": 30.0,
+        "autostart": True,
         "mrtsp_solver": "greedy",
         "escape_enabled": True,
         "frontier_selection_min_distance": 0.6,
@@ -168,7 +177,7 @@ slam_node = TimerAction(period=25.0, actions=[
         SetEnvironmentVariable("GZ_SIM_RESOURCE_PATH", models_path),
 
         # Phase 0 (t=0)
-        gz_sim, rsp, jsp, bridge, clock_bridge, joint_bridge, joint_ctrl, odom_bridge, lidar_tf, scan_filter,
+        gz_sim, rsp, jsp, bridge, clock_bridge, joint_bridge, joint_ctrl, odom_bridge, lidar_tf, scan_filter, spawn_robot,
 
         # Phase 1 (t=25-30s)
         slam_node, slam_lifecycle,
